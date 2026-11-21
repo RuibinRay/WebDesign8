@@ -24,9 +24,10 @@
   function photoOf(id) { return !drawnOnly && CUT[id] ? { id: id, fit: CUT[id] } : null; }
   /* the photo placed so its case circle is the drawing's (radius 160 at 0,0); without a strap it is cut to the
      head: the case, the lugs and the crown (on the right from the front, on the left from the back) */
-  function photoLayer(P, id, withStrap, crownSide) {
+  function photoLayer(P, id, withStrap, crownSide, lazy) {
     var f = P.fit, w = 160 / f.r, h = w / f.a;
-    var img = '<image href="assets/img/' + P.id + '-cut' + (withStrap ? '' : '-sm') + '.webp" x="' + r2(-f.u * w) + '" y="' + r2(-f.v * h) + '" width="' + r2(w) + '" height="' + r2(h) + '" preserveAspectRatio="none"/>';
+    /* lazy: the address waits in data-href until api.load() (a watch that is not on screen yet) */
+    var img = '<image ' + (lazy ? 'data-' : '') + 'href="assets/img/' + P.id + '-cut' + (withStrap ? '' : '-sm') + '.webp" x="' + r2(-f.u * w) + '" y="' + r2(-f.v * h) + '" width="' + r2(w) + '" height="' + r2(h) + '" preserveAspectRatio="none"/>';
     if (withStrap) return { defs: '', body: img };
     return {
       defs: '<clipPath id="ph' + id + '"><circle r="165"/><rect x="-90" y="-180" width="180" height="360"/><rect x="' + (crownSide > 0 ? 148 : -186) + '" y="-26" width="38" height="52"/></clipPath>',
@@ -277,7 +278,7 @@
       '<circle r="146" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1"/>';
     if (P) {
       /* the photograph, and the drawn hands on its pinion, scaled to its dial */
-      var pl = photoLayer(P, id, withStrap, 1);
+      var pl = photoLayer(P, id, withStrap, 1, opt.lazy);
       defs += pl.defs;
       body = pl.body + '<g data-hands filter="url(#sh' + id + ')"><g transform="scale(' + r2(L.photoDial * 160 / 146) + ')">' + hd.body + '</g></g>';
     }
@@ -298,6 +299,7 @@
 
     var api = {
       el: svg, model: model, photo: !!P,
+      load: function () { var im = svg.querySelector('image[data-href]'); if (im) { im.setAttribute('href', im.getAttribute('data-href')); im.removeAttribute('data-href'); } return api; },
       time: function (h, m, s) {
         var hr = (h % 12) + m / 60 + s / 3600, mn = m + s / 60;
         hH.setAttribute('transform', 'rotate(' + r2(hr * 30) + ')');

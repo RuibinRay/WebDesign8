@@ -319,8 +319,8 @@ p { margin: 0 0 1em; }
 }
 .hcard::after { content: ''; position: absolute; inset: 0; background: #000; opacity: calc(var(--cover) * .55); pointer-events: none; }
 /* the four backdrops are sampled from the master photographs (flat colour), so photo and page are one surface */
-.hcard--anatole { --bg: #E5C5BC; --sub: rgba(20, 18, 16, .62); }
-.hcard--mesembria { --bg: #E5E0D8; --sub: rgba(20, 18, 16, .62); }
+.hcard--anatole { --bg: #E5C5BC; --sub: rgba(20, 18, 16, .72); }
+.hcard--mesembria { --bg: #E5E0D8; --sub: rgba(20, 18, 16, .72); }
 .hcard--hesperis { --bg: #924D36; --fg: #FBEADF; --sub: rgba(251, 234, 223, .74); }
 .hcard--arktos { --bg: #10173D; --fg: var(--paper); --sub: var(--moon-2); }
 .hcard__in {

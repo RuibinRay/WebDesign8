@@ -5,9 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Horæ · Every hour has a name</title>
   <meta name="description" content="Horæ makes four mechanical watches by hand, each built around one named hour of the day: Anatole, Mesembria, Hesperis and Arktos.">
+  <link rel="canonical" href="https://ruibinray.github.io/WebDesign8/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Horæ">
   <meta property="og:title" content="Horæ · Every hour has a name">
   <meta property="og:description" content="Four watches, made by hand, each built around one hour of the day.">
-  <meta property="og:image" content="assets/img/og.jpg">
+  <meta property="og:url" content="https://ruibinray.github.io/WebDesign8/">
+  <meta property="og:image" content="https://ruibinray.github.io/WebDesign8/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The four Horæ watches in a row, from sunrise to night.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ruibinray.github.io/WebDesign8/assets/img/og.jpg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0A0E1C">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +141,7 @@
         <div class="wrist__check">
           <h3 class="wrist__h3">On your wrist</h3>
           <label class="wrist__range"><span>Your wrist, measured round</span><output data-wrist-out>17 cm</output>
-            <input type="range" min="14" max="21" step="0.5" value="17" data-wrist-size aria-describedby="wrist-how"></label>
+            <input type="range" min="14" max="21" step="0.5" value="17" data-wrist-size aria-label="Your wrist, measured round, in centimetres" aria-valuetext="17 cm" aria-describedby="wrist-how"></label>
           <p class="wrist__note" id="wrist-how">A watch sits well when its lugs stay inside the flat top of the wrist, about a third of the way round. Each bar is that flat top; the dark part is the watch, lug to lug.</p>
           <ul class="wrist__bars" data-wrist-bars></ul>
         </div>

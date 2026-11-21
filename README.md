@@ -39,6 +39,13 @@ Limits: the strap is the one photographed (the watch page says which); the Arkto
 - **Wrist check:** hairline bars and a champagne slider instead of app-style bars.
 - **Films:** desktop frames cut at the films' own 1920 px (was 1600), so the sky is sharp on a large screen.
 
+## Speed and polish (2026-11-21)
+
+- **First visit: about 5 MB before you scroll (was 23.5 MB).** The day film loads every 16th frame first (15 frames, enough to scrub) and the rest only when you start the day, nearest frames first, or after 3.5 s idle on a desktop with a good connection (`HZ_FILM.make(..., { phased: true })`, `more()`). Phones and data-saver wait for the scroll. The photographed watch on screen loads first, the other three once the page has loaded (`ART.watch(m, { lazy: true })`, `.load()`).
+- **Share cards:** absolute `og:image` / `og:url`, `twitter:card` large image, canonical links, so a shared link shows the four watches; the shot sheet is `noindex`.
+- **Icons and 404:** `assets/apple-touch-icon.png` (the mark), and `404.html` ("An hour without a name") with one way back.
+- **Accessibility:** the wrist slider has a spoken name and value; the small text on the two lightest collection cards is a touch darker. Checked: one h1 per page, no skipped headings, every image described, every control named.
+
 ## The Arktos, close (4K)
 
 On the Arktos page, right after the hero, a pinned film played by scrolling: the dial in near darkness, a thin beam of light sweeps across it, the aventurine fills with sparks and the lume comes alive, one line of copy per moment. Made 2026-11-21 for 49 credits: two stills (`arktos-macro-dark` from the master, `arktos-macro-lit` from the dark one) and `film-arktos-macro`, Kling 4.0 at 4K (3828 × 2164, 45 credits). Desktop frames are cut at 2560 px (`width` on the film in `js/shots.js`), phones get the portrait crop. The section appears only on a watch page whose `<watch>-macro` film or stills exist, so the other three watches can get theirs later for about 49 credits each.

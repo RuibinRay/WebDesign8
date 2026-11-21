@@ -85,11 +85,13 @@
       /* page morph: "Discover" in this watch's panel flies this drawing into the watch page */
       wrap.setAttribute('data-morph-for', m);
       wrap.setAttribute('data-morph-part', 'watch');
-      var w = ART.watch(m);
+      var w = ART.watch(m, { lazy: true });
       wrap.appendChild(w.el);
       holder.appendChild(wrap);
       return { wrap: wrap, w: w, on: false };
     });
+
+    root.addEventListener('load', function () { setTimeout(function () { watches.forEach(function (W) { W.w.load(); }); }, 1200); });
 
     /* steps: the buttons on the stage, and ← / → (wired at the end) */
     var stepBtns = Array.prototype.slice.call(stage.querySelectorAll('[data-day-step]'));
@@ -141,7 +143,11 @@
     /* the day as a film: a real place behind the drawn watch, played by the same clock (js/film.js).
        With nothing generated the drawn sky is the storyboard; with the stills, they crossfade by the hour. */
     var DAY_SHOTS = ['day-am', 'day-pm', 'day-eve'];
-    var dayFilm = root.HZ_FILM.make($('[data-day-film]', stage), DAY_SHOTS);
+    var dayFilm = root.HZ_FILM.make($('[data-day-film]', stage), DAY_SHOTS, { phased: true });
+    var saveData = navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType || ''));
+    if (dayFilm.more && !saveData && root.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      root.addEventListener('load', function () { setTimeout(function () { dayFilm.more(); }, 3500); });
+    }
     stage.classList.toggle('day--film', dayFilm.tier !== 'board');
     filmTag($('[data-day-film-tag]', stage), dayFilm.tier, DAY_SHOTS, 'Drawn sky');
 
@@ -179,7 +185,10 @@
       var h = lerp(liveH, hourAt(p), b);
       var hh = ((h % 24) + 24) % 24;
       var hInt = Math.floor(hh), mFloat = (hh - hInt) * 60;
-      if (dayFilm.tier !== 'board') dayFilm.set(root.HZ_FILM.hourPos(DAY_SHOTS, hh));
+      if (dayFilm.tier !== 'board') {
+        dayFilm.set(root.HZ_FILM.hourPos(DAY_SHOTS, hh));
+        if (p > 0.004 && dayFilm.more) dayFilm.more(); /* the visitor has started the day: fetch the rest of it */
+      }
       var secs = live.s;
 
       /* sky */
@@ -242,7 +251,7 @@
       for (var i = 0; i < watches.length; i++) {
         var W = watches[i], o = mw.w[i];
         if (o > 0.001) {
-          if (!W.on) { W.wrap.style.visibility = 'visible'; W.on = true; }
+          if (!W.on) { W.wrap.style.visibility = 'visible'; W.on = true; W.w.load(); }
           W.wrap.style.opacity = o.toFixed(3);
           W.w.time(hInt, mFloat, secs).light(light).lume(night);
         } else if (W.on) {
@@ -471,6 +480,7 @@
     var paintFit = function () {
       var cm = +range.value, top = cm * 10 / 3.2; /* flat top of the wrist, mm */
       out.textContent = cm + ' cm';
+      range.setAttribute('aria-valuetext', cm + ' cm');
       H.MODELS.forEach(function (m) {
         var k = m.lug / top, bar = bars.querySelector('[data-bar="' + m.id + '"]'), say = bars.querySelector('[data-say="' + m.id + '"]');
         bar.style.setProperty('--fill', (k * 100).toFixed(1) + '%');

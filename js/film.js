@@ -81,15 +81,30 @@
     var frames = segs.map(function () { return []; }), loaded = 0, started = false, drawn = '';
     var stand = {}; /* stills standing in for a missing film: id → Image */
     var src = function (k, i) { return 'assets/film/' + segs[k].name + '/' + set + '/' + String(i + 1).padStart(4, '0') + '.webp'; };
+    /* Two phases. load(): every 16th frame of every shot (enough to scrub, about a tenth of the weight).
+       more(): the rest, coarse to fine, and within each pass nearest to where the film is now first.
+       A page calls more() when the visitor starts to play the film (or on an idle desktop); a film made
+       with { eager: true } (the default) asks for everything at once, as before. */
+    var order = [], next = 0, active = 0, fine = false;
+    var queue = function (k, i) { if (counts[k] && i >= 0 && i < counts[k] && !frames[k][i]) { frames[k][i] = 'q'; order.push([k, i]); } };
+    function more() {
+      if (fine) return;
+      fine = true;
+      if (!started) load();
+      var here = pos;
+      [8, 4, 2, 1].forEach(function (step) {
+        var pass = [];
+        segs.forEach(function (s, k) { for (var i = 0; i < counts[k]; i += step) if (!frames[k][i]) pass.push([k, i, Math.abs(k + i / Math.max(1, counts[k] - 1) - here)]); });
+        pass.sort(function (a, b) { return a[2] - b[2]; }).forEach(function (q) { queue(q[0], q[1]); });
+      });
+      pump();
+    }
     function load() {
       if (started) return;
       started = true;
-      var order = [];
-      [16, 8, 4, 2, 1].forEach(function (step) {
-        segs.forEach(function (s, k) {
-          for (var i = 0; i < counts[k]; i += step) if (!frames[k][i]) { frames[k][i] = 'q'; order.push([k, i]); }
-          if (step === 16 && counts[k] && !frames[k][counts[k] - 1]) { frames[k][counts[k] - 1] = 'q'; order.push([k, counts[k] - 1]); }
-        });
+      segs.forEach(function (s, k) {
+        for (var i = 0; i < counts[k]; i += 16) queue(k, i);
+        queue(k, counts[k] - 1);
       });
       segs.forEach(function (sg, k) {
         if (counts[k]) return;
@@ -102,8 +117,10 @@
           stand[id] = null;
         });
       });
-      var next = 0, active = 0;
-      (function pump() {
+      pump();
+      if (opt.eager !== false && opt.phased !== true) more();
+    }
+    function pump() {
         while (active < 6 && next < order.length) {
           var ki = order[next++], im = new Image();
           active++;
@@ -112,7 +129,6 @@
           im.onerror = function () { active--; pump(); };
           im.src = src(ki[0], ki[1]);
         }
-      })();
     }
     function nearest(k, i) {
       var f = frames[k];
@@ -166,6 +182,7 @@
       draw(false);
     };
     api.load = load;
+    api.more = more;
     api.resize = function () { size(); draw(true); };
     api.state = function () { return { tier: tier, pos: +pos.toFixed(4), shot: segs[cur.k].name, frame: cur.i + 1, of: counts[cur.k], loaded: loaded, set: set }; };
     size();
