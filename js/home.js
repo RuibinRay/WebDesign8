@@ -62,13 +62,13 @@
   }
   function idxAt(p) { return p < BOUNDS[0] ? liveIdx : p < BOUNDS[1] ? 0 : p < BOUNDS[2] ? 1 : p < BOUNDS[3] ? 2 : 3; }
   function weights(p) {
-    var w = [0, 0, 0, 0], W = 0.022;
+    var w = [0, 0, 0, 0], W = 0.026;
     for (var i = 0; i < BOUNDS.length; i++) {
       var B = BOUNDS[i];
       if (Math.abs(p - B) < W) {
         var t = smooth(B - W, B + W, p);
-        w[idxAt(B - 0.001)] += 1 - t;
-        w[idxAt(B + 0.001)] += t;
+        w[idxAt(B - 0.001)] += 1 - smooth(0, 0.48, t);
+        w[idxAt(B + 0.001)] += smooth(0.52, 1, t);
         return { w: w, t: t, edge: true };
       }
     }
@@ -235,8 +235,10 @@
 
       /* which watch is on the stage */
       var mw = weights(p);
-      var breath = mw.edge ? 1 - 0.06 * (1 - Math.abs(2 * mw.t - 1)) : 1;
-      holder.style.setProperty('--ws', breath.toFixed(4));
+      var breath = mw.edge ? 1 - 0.04 * (1 - Math.abs(2 * mw.t - 1)) : 1;
+      var heroIn = 1 - smooth(0.004, 0.05, p);
+      holder.style.setProperty('--ws', (breath * (1 - 0.12 * heroIn)).toFixed(4));
+      st.setProperty('--chrome', (1 - heroIn).toFixed(3));
       for (var i = 0; i < watches.length; i++) {
         var W = watches[i], o = mw.w[i];
         if (o > 0.001) {

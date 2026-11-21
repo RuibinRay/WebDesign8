@@ -31,6 +31,14 @@ How it is made (2026-11-20, 32 credits, every image usable first try): the four 
 
 Limits: the strap is the one photographed (the watch page says which); the Arktos moon on the photo is fixed, not the real moon. The watches are shown flat and face on, in 2D, on purpose.
 
+## Luxury pass (2026-11-21)
+
+- **Palette:** warmer ink `#141210`, softer ivory `#F2EEE6`, champagne gold `#B8976A` / `#DCC7A1` in place of the yellower gold, finer hairlines. The four hour colours now appear only as the backdrops of the watch photographs, sampled from them (Anatole `#E5C5BC`, Mesembria `#E5E0D8`, Hesperis `#924D36`, Arktos `#10173D`), so each collection card and its photograph are one surface and the watch floats.
+- **Hero:** the watch a little smaller, a stronger veil behind the words, the hour rail and step buttons held back until you scroll.
+- **Between watches:** the first fades out before the next fades in (a breath of empty sky), instead of a double exposure.
+- **Wrist check:** hairline bars and a champagne slider instead of app-style bars.
+- **Films:** desktop frames cut at the films' own 1920 px (was 1600), so the sky is sharp on a large screen.
+
 ## On the wrist
 
 A section after the four hours (`#wrist`): the four wrist photographs, each saying whose wrist it is (17.5, 15.5, 17 and 18 cm) with the case, thickness, lug to lug and a line on how it sits; the four cases drawn side on to scale, one per row (Mesembria visibly the thin one, Arktos the thick one); and "On your wrist", a slider for your wrist size that compares each watch's lug-to-lug with the flat top of your wrist (taken as a third of the circumference, a common rule of thumb): sits well inside up to 90%, fills the wrist up to 100%, the lugs reach past the edge beyond. The watch page's specs now include lug to lug. Data in `js/data.js` (`FIT`).

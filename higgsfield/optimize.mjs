@@ -167,7 +167,7 @@ for (const f of S.films) {
   if (!ff) { console.log(`  ✗ ${f.id}: ffmpeg not found, set FFMPEG_BIN`); continue; }
   const focus = f.focus ?? 0.5;
   for (const [set, vf] of [
-    ['d', `fps=${FPS},scale=1600:-2:flags=lanczos,unsharp=5:5:0.35`],
+    ['d', `fps=${FPS},scale=1920:-2:flags=lanczos,unsharp=5:5:0.3`],
     ['m', `fps=${FPS},crop=ih*9/16:ih:(iw-ih*9/16)*${focus}:0,scale=720:1280:flags=lanczos,unsharp=5:5:0.35`],
   ]) {
     const out = path.join(base, set);
