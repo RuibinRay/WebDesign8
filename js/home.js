@@ -342,11 +342,21 @@
     /* count-ups in the pinned stage start with the stage, not on intersect */
     Array.prototype.forEach.call(statEls, function (b) { b.removeAttribute('data-count'); b.setAttribute('data-to', b.textContent); });
     var counted = false;
+    /* the filmed calibre (js/film.js): when it exists it replaces the drawn stack, and the labels stand in a
+       column beside it, appearing in the order the parts come apart */
+    var calFilm = root.HZ_FILM.make($('[data-cal-film]', cal), ['calibre'], { eager: false });
+    var filmed = calFilm.tier !== 'board';
+    cal.classList.toggle('cal--film', filmed);
 
     UI.onScroll(function () {
       var r = calSec.getBoundingClientRect(), vh = window.innerHeight;
+      if (filmed && calFilm.load && r.top < vh * 2.5) calFilm.load();
       if (r.bottom < 0 || r.top > vh) return;
       var p = clamp(-r.top / (r.height - vh), 0, 1);
+      if (filmed) {
+        if (calFilm.more && p > 0.002) calFilm.more();
+        calFilm.set(smooth(0.06, 0.72, p));
+      }
       var tilt = smooth(0.0, 0.18, p);
       var mob = mobile();
       stack.style.transform = 'rotateX(' + (58 * tilt).toFixed(2) + 'deg) rotateZ(' + (-16 * tilt - 30 * p).toFixed(2) + 'deg) scale(' + (1 - 0.12 * tilt).toFixed(3) + ')';
@@ -379,8 +389,18 @@
         });
       }
 
-      /* labels: a column to the right of the movement, each on a leader line from its part */
+      /* labels: a column to the right of the movement, each on a leader line from its part
+         (filmed: an evenly spaced column, no leader lines) */
       var cr = cal.getBoundingClientRect();
+      if (filmed) {
+        var fr = $('[data-cal-film]', cal).getBoundingClientRect();
+        var fx = mob ? cr.width - 118 : fr.right - cr.left + 16, ftop = cr.height * (mob ? 0.3 : 0.17), fstep = cr.height * (mob ? 0.5 : 0.68) / (N - 1);
+        layers.forEach(function (L, i) {
+          L.li.style.transform = 'translate(' + fx.toFixed(1) + 'px,' + (ftop + i * fstep - (mob ? 9 : 12)).toFixed(1) + 'px)';
+          L.li.style.opacity = L.lo.toFixed(3);
+        });
+        return;
+      }
       var pts = layers.map(function (L) { var a = L.anchor.getBoundingClientRect(); return { x: a.left - cr.left, y: a.top - cr.top }; });
       var colX = mob ? cr.width - 118 : Math.max.apply(null, pts.map(function (q) { return q.x; })) + 56;
       if (!mob) colX = Math.min(colX, cr.width - 300);

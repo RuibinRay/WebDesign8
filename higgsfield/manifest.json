@@ -761,6 +761,59 @@
       "file": "higgsfield/renders/film-arktos-macro.mp4",
       "seconds": 221,
       "at": "2026-11-21T15:25:27.767Z"
+    },
+    "calibre-whole": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "521942bd-53ba-49ea-84c9-6c91077c8179",
+      "file": "higgsfield/renders/calibre-whole.png",
+      "seconds": 46,
+      "at": "2026-11-21T18:51:07.473Z"
+    },
+    "calibre-apart": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/calibre-whole.png"
+      ],
+      "job_id": "ece3125b-a3f0-4db8-b011-e67455d7de64",
+      "file": "higgsfield/renders/calibre-apart.png",
+      "seconds": 50,
+      "at": "2026-11-21T18:51:57.578Z"
+    },
+    "film-calibre": {
+      "status": "done",
+      "kind": "film",
+      "model": "kling4_0",
+      "params": {
+        "mode": "image-to-video",
+        "duration": 5,
+        "resolution": "4k"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/calibre-whole.png",
+        "higgsfield/renders/calibre-apart.png"
+      ],
+      "job_id": "e9b79f51-17f1-4562-8e8f-5605e07d1eca",
+      "file": "higgsfield/renders/film-calibre.mp4",
+      "seconds": 224,
+      "at": "2026-11-21T18:55:52.522Z"
     }
   }
 }

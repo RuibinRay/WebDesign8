@@ -39,6 +39,10 @@ Limits: the strap is the one photographed (the watch page says which); the Arkto
 - **Wrist check:** hairline bars and a champagne slider instead of app-style bars.
 - **Films:** desktop frames cut at the films' own 1920 px (was 1600), so the sky is sharp on a large screen.
 
+## The calibre, filmed (4K)
+
+The "214 parts" section now plays a 4K film when you scroll: the whole Arktos tips back, the crystal lifts, and the watch separates into nine layers in build order along one axis, from the crystal at the top to the caseback at the bottom. The part names stand in a column beside it and appear in the same order. Made 2026-11-21 for 49 credits: `calibre-whole` (from the Arktos master), `calibre-apart` (from the whole one) and `film-calibre` (Kling 4.0, 4K, 5 s). The film keeps its own area between the copy and the labels (`.cal__film` in the CSS). The drawn exploded view is still in the code and returns if the film files are removed.
+
 ## Speed and polish (2026-11-21)
 
 - **First visit: about 5 MB before you scroll (was 23.5 MB).** The day film loads every 16th frame first (15 frames, enough to scrub) and the rest only when you start the day, nearest frames first, or after 3.5 s idle on a desktop with a good connection (`HZ_FILM.make(..., { phased: true })`, `more()`). Phones and data-saver wait for the scroll. The photographed watch on screen loads first, the other three once the page has loaded (`ART.watch(m, { lazy: true })`, `.load()`).

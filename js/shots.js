@@ -379,6 +379,33 @@
     })
   );
 
+  /* The calibre taken apart, filmed: the whole Arktos head, then the same head separated into its layers in
+     build order. On the calibre section's own midnight backdrop, so the film sits in the scene. */
+  var CAL = 'Photoreal luxury watch product photography, medium-format camera, 120mm lens, focus-stacked, very fine grain. ' +
+    'A deep midnight-blue backdrop (#121A38) fading to near black (#06080F) at every edge, one large soft key light from above and a thin rim light from behind. ';
+  var LAYERS = 'from top to bottom: the box-domed sapphire crystal; the polished platinum case ring with its crown; the white gold hands with green luminous centres; ' +
+    'the midnight-blue aventurine dial flecked with copper, with its gold moon in the window at six; the rhodium movement bridges with straight Geneva stripes, red jewels, blued screws and the gold balance wheel; ' +
+    'the gilt gear train of five wheels; the round mainplate decorated with overlapping circular perlage; the half-moon 22k gold winding rotor; and the sapphire caseback in a platinum ring';
+  shots.push(
+    gpt({
+      id: 'calibre-whole', stage: 2, aspect: '16:9', tone: 'night', model_of: 'arktos', refs: ['higgsfield/renders/arktos-front.png'],
+      used: ['Home: the calibre, first frame of the film (the watch whole)'],
+      alt: 'The Arktos watch head, whole, floating above a midnight-blue backdrop.',
+      brief: 'The Arktos head without its strap, floating, seen from about 35 degrees above, centred on midnight blue.',
+      prompt: CAL + 'The head of ' + WATCH.arktos.replace(', on a night-blue alligator leather strap', '') + ', with no strap, floating level in the air, ' +
+        'seen from the front and about 35 degrees above, centred, the case filling about a third of the frame width, the dial facing up and toward the camera, the hands at ten past ten. ' + SAME + ' ' + NEG,
+    }),
+    gpt({
+      id: 'calibre-apart', stage: 3, aspect: '16:9', tone: 'night', model_of: 'arktos', refs: ['higgsfield/renders/calibre-whole.png'],
+      used: ['Home: the calibre, last frame of the film (taken apart)'],
+      alt: 'The same watch taken apart into nine layers floating one above the other.',
+      brief: 'The same frame, the watch taken apart: nine layers floating in a vertical stack on one axis, evenly spaced, in build order.',
+      prompt: 'The same frame as the reference image, with the watch now taken apart. Same camera, lens, angle, light and backdrop. ' +
+        'Its parts float in a single vertical stack on the same centre axis, level, evenly spaced, the stack filling about 85% of the frame height, ' + LAYERS + '. ' +
+        'Every part is clean, complete and sharp; nothing is broken or missing. ' + NEG,
+    })
+  );
+
   var TL = 'One continuous time-lapse shot, no cuts, the camera locked off and perfectly still. ';
   var STEADY = ' Smooth, steady, natural motion, no flicker, constant framing. No text, no logos.';
   var films = [
@@ -428,6 +455,17 @@
     beats: [{ at: 0, text: 'Lights out.' }, { at: 0.4, text: 'A thread of light across the aventurine.' }, { at: 0.85, text: 'The hands begin to glow.' }],
     prompt: 'One continuous macro shot, no cuts, locked-off camera with a very slow push-in. In near darkness a thin beam of light slowly sweeps across the watch dial from left to right, ' +
       'lighting the copper flecks of the aventurine one by one like stars; the luminous hands and markers glow steadily brighter green. The watch and its hands do not move. Slow, smooth, constant framing. No text, no logos.',
+  }));
+  films[films.length - 1].params.resolution = '4k';
+  films.push(film({
+    id: 'film-calibre', name: 'calibre', start: 'calibre-whole', end: 'calibre-apart', focus: 0.5, scene: 'calibre', width: 2560,
+    used: ['Home: the calibre taken apart, scrubbed by scrolling'],
+    alt: 'The Arktos comes apart into its layers, crystal at the top, caseback at the bottom.',
+    brief: 'Locked-off, 4K, 5 s: the whole watch head separates slowly into nine layers in a vertical stack. Only the parts move, straight up and down.',
+    beats: [{ at: 0, text: 'Whole.' }, { at: 0.35, text: 'It comes apart in the order it was built.' }, { at: 0.85, text: 'Nine layers. 214 parts.' }],
+    prompt: 'One continuous shot, no cuts, locked-off camera. The floating watch head slowly comes apart: its layers lift and separate straight up and down along one vertical axis, ' +
+      'the crystal rising to the top and the caseback sinking to the bottom, the dial, movement bridges, wheels, mainplate and gold rotor spreading evenly between them, ' +
+      'until all nine layers float level in a tall evenly spaced stack. The parts do not spin or tilt. Slow, smooth, precise, constant light. No text, no logos.',
   }));
   films[films.length - 1].params.resolution = '4k';
 
