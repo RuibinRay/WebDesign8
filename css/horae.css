@@ -649,6 +649,10 @@ html.lenis, html.lenis body { height: auto; }
 .day--film .day__stars, .day--film .day__sun, .day--film .day__moon { display: none; }
 .day--film .day__sky::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--sky-b) 84%, transparent) 0%, color-mix(in srgb, var(--sky-b) 52%, transparent) 30%, transparent 58%), linear-gradient(0deg, color-mix(in srgb, var(--sky-b) 40%, transparent), transparent 26%); }
 /* the set: the real box opens in the box's own place, its edges dissolving into the stage */
+/* the photographed watches dropping into the photographed box */
+.set__drops { position: absolute; pointer-events: none; perspective: 900px; }
+.set__drop { position: absolute; transform-origin: 50% 60%; will-change: transform, opacity; filter: drop-shadow(0 calc(3px + 6px * var(--sh, 0)) calc(3px + 5px * var(--sh, 0)) rgba(0, 0, 0, calc(.25 + .3 * var(--sh, 0)))); }
+.set__drop svg { width: 100%; height: 100%; display: block; }
 .set__film { pointer-events: none; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 72%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 72%, transparent 100%); }
 .film-tag { position: absolute; left: var(--pad); bottom: max(3vh, 18px); z-index: 3; margin: 0; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; opacity: .55; pointer-events: none; }
 .film-tag[hidden] { display: none; }

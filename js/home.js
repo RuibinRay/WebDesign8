@@ -571,20 +571,41 @@
     /* The film is placed so the photographed tray lands on the drawn tray in its open pose (the pose at the
        hand-over), so the crossfade does not jump. In box-open the tray spans 58.2% of the frame's width,
        centred, at 53% of its height; re-measure these if box-open is re-rolled. The soft mask fades the frame's edges. */
-    var TRAY = { w: 0.582, x: 0.5, y: 0.53 }, trayEl = $('.set__tray', boxEl);
+    /* With the photographs, the real box stays to the end: the film (or its stills) opens the lid, then the four
+       photographed watches drop into the real cushions, laid back to the camera's angle, still ticking.
+       Cushion centres measured in box-open (fractions of the frame): x 30.0 / 43.2 / 56.5 / 69.7 %, y 53 %,
+       each about 11 % of the frame wide. Re-measure if box-open is re-rolled. */
+    var REAL = boxFilm.tier !== 'board';
+    var CUSH = { x: [0.300, 0.432, 0.565, 0.697], y: 0.53, w: 0.104 };
+    var drops = null;
+    if (REAL) {
+      drops = document.createElement('div');
+      drops.className = 'set__drops';
+      drops.setAttribute('aria-hidden', 'true');
+      setStage.insertBefore(drops, sceneEl);
+      drops = H.MODELS.map(function (m, i) {
+        var el = document.createElement('div');
+        el.className = 'set__drop';
+        var w = ART.watch(m.id, { strap: false });
+        el.appendChild(w.el);
+        w.light({ dx: 0.6, dy: 2.6, blur: 1.8, alpha: 0.34, deg: 0 }).lume(m.id === 'arktos' ? 0.45 : 0);
+        setStage.querySelector('.set__drops').appendChild(el);
+        return { el: el, w: w, spin: [-24, 18, -14, 26][i] };
+      });
+      sceneEl.style.visibility = 'hidden';
+    }
     var fitFilm = function () {
-      var keep = boxEl.style.transform;
-      boxEl.style.transform = 'translateY(0px) rotateX(' + (mobile() ? 46 : 42) + 'deg) rotateZ(0deg)';
-      var t = trayEl.getBoundingClientRect(), b = setStage.getBoundingClientRect();
-      boxEl.style.transform = keep;
-      var w = t.width / TRAY.w, h = w * 9 / 16;
-      var st = filmHost.style;
-      st.inset = 'auto'; st.width = w + 'px'; st.height = h + 'px';
-      st.left = (t.left - b.left + t.width / 2 - TRAY.x * w) + 'px';
-      st.top = (t.top - b.top + t.height / 2 - TRAY.y * h) + 'px';
+      /* the photographed box as large as it fits in the box's place, centred */
+      var a = sceneEl.getBoundingClientRect(), b = setStage.getBoundingClientRect();
+      var w = Math.min(a.width * (mobile() ? 1.45 : 1.5), a.height * 1.3 * 16 / 9), h = w * 9 / 16;
+      var left = a.left - b.left + (a.width - w) / 2, top = a.top - b.top + (a.height - h) / 2;
+      [filmHost, setStage.querySelector('.set__drops')].forEach(function (el) {
+        var st = el.style;
+        st.inset = 'auto'; st.width = w + 'px'; st.height = h + 'px'; st.left = left + 'px'; st.top = top + 'px';
+      });
       if (boxFilm.resize) boxFilm.resize();
     };
-    if (boxFilm.tier !== 'board') { fitFilm(); window.addEventListener('resize', fitFilm); }
+    if (REAL) { fitFilm(); window.addEventListener('resize', fitFilm); }
 
     UI.onScroll(function () {
       var r = setSec.getBoundingClientRect(), vh = window.innerHeight;
@@ -593,11 +614,20 @@
       if (!setVisible) return;
       var p = clamp(-r.top / (r.height - vh), 0, 1);
       var mob = mobile();
-      if (boxFilm.tier !== 'board') {
+      if (REAL) {
         boxFilm.set(clamp(p / FILM_END, 0, 1));
-        var hand = smooth(FILM_END, HAND, p);
-        filmHost.style.opacity = (1 - hand).toFixed(3);
-        sceneEl.style.opacity = hand.toFixed(3);
+        /* the watches drop into the real cushions on the same beats as the checklist */
+        var dw = parseFloat(drops[0].el.parentNode.style.width) || 0, dh = dw * 9 / 16;
+        drops.forEach(function (o, i) {
+          var s0 = 0.31 + i * 0.105, e = smooth(s0, s0 + 0.085, p), land = e * e * (3 - 2 * e);
+          var size = CUSH.w * dw;
+          o.el.style.width = o.el.style.height = size.toFixed(1) + 'px';
+          o.el.style.left = (CUSH.x[i] * dw - size / 2).toFixed(1) + 'px';
+          o.el.style.top = (CUSH.y * dh - size / 2).toFixed(1) + 'px';
+          o.el.style.opacity = smooth(s0 - 0.012, s0 + 0.018, p).toFixed(3);
+          o.el.style.transform = 'translateY(' + (-(1 - land) * dh * 0.55).toFixed(1) + 'px) scale(' + (1 + 0.22 * (1 - land)).toFixed(3) + ') rotate(' + ((1 - land) * o.spin).toFixed(2) + 'deg) rotateX(' + (34 * land).toFixed(1) + 'deg)';
+          o.el.style.setProperty('--sh', land.toFixed(3));
+        });
       }
 
       /* the box turns toward you and tips so you can look in; the lid lifts on its hinge */
@@ -636,7 +666,7 @@
     (function setLoop() {
       if (setVisible) {
         var t = ART.now();
-        if (t.s !== setBeat) { setBeat = t.s; setWatches.forEach(function (o) { o.w.time(t.h, t.m, t.s); }); }
+        if (t.s !== setBeat) { setBeat = t.s; setWatches.forEach(function (o) { o.w.time(t.h, t.m, t.s); }); if (drops) drops.forEach(function (o) { o.w.time(t.h, t.m, t.s); }); }
       }
       requestAnimationFrame(setLoop);
     })();
