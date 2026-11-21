@@ -39,6 +39,10 @@ Limits: the strap is the one photographed (the watch page says which); the Arkto
 - **Wrist check:** hairline bars and a champagne slider instead of app-style bars.
 - **Films:** desktop frames cut at the films' own 1920 px (was 1600), so the sky is sharp on a large screen.
 
+## The Arktos, close (4K)
+
+On the Arktos page, right after the hero, a pinned film played by scrolling: the dial in near darkness, a thin beam of light sweeps across it, the aventurine fills with sparks and the lume comes alive, one line of copy per moment. Made 2026-11-21 for 49 credits: two stills (`arktos-macro-dark` from the master, `arktos-macro-lit` from the dark one) and `film-arktos-macro`, Kling 4.0 at 4K (3828 × 2164, 45 credits). Desktop frames are cut at 2560 px (`width` on the film in `js/shots.js`), phones get the portrait crop. The section appears only on a watch page whose `<watch>-macro` film or stills exist, so the other three watches can get theirs later for about 49 credits each.
+
 ## On the wrist
 
 A section after the four hours (`#wrist`): the four wrist photographs, each saying whose wrist it is (17.5, 15.5, 17 and 18 cm) with the case, thickness, lug to lug and a line on how it sits; the four cases drawn side on to scale, one per row (Mesembria visibly the thin one, Arktos the thick one); and "On your wrist", a slider for your wrist size that compares each watch's lug-to-lug with the flat top of your wrist (taken as a third of the circumference, a common rule of thumb): sits well inside up to 90%, fills the wrist up to 100%, the lugs reach past the edge beyond. The watch page's specs now include lug to lug. Data in `js/data.js` (`FIT`).

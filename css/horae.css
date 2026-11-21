@@ -710,6 +710,14 @@ html.lenis, html.lenis body { height: auto; }
 .wp-gallery__grid figcaption { margin-top: 12px; font-size: 13px; color: var(--ink-2); }
 .wp-gallery__grid figure:nth-child(2) { margin-top: 10vh; }
 
+/* the macro film on a watch page: pinned, black, one line of copy at a time */
+.wp-macro { position: relative; height: 320vh; background: #000; color: var(--paper); }
+.wp-macro[hidden] { display: none; }
+.wp-macro__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.wp-macro__stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 0, 0, .62), transparent 34%); pointer-events: none; }
+.wp-macro__copy { position: absolute; left: var(--pad); right: var(--pad); bottom: 9vh; z-index: 2; }
+.wp-macro__copy .eyebrow { color: var(--gold-hi); }
+.wp-macro__beat { margin: 0; font-family: var(--f-serif); font-style: italic; font-size: clamp(30px, 3.4vw, 54px); line-height: 1.1; max-width: 18em; min-height: 1.2em; }
 .wp-hour { position: relative; min-height: 100vh; min-height: 100svh; display: grid; align-items: end; overflow: hidden; color: var(--paper); background: var(--night); }
 .wp-hour .slot--fill { transform: scale(var(--hz, 1.12)); transform-origin: 50% 60%; }
 .wp-hour__in { position: relative; z-index: 1; padding: 14vh var(--pad) 12vh; max-width: 46rem; }

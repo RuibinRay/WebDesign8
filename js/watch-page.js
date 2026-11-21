@@ -146,6 +146,27 @@
     requestAnimationFrame(loop);
   })();
 
+  /* ── the macro film (only where it exists): scroll plays it, one line of copy per moment ── */
+  var macroSec = $('[data-macro]'), macroShot = root.HZ_FILM && root.HZ_FILM.shot(m.id + '-macro');
+  if (macroSec && macroShot) {
+    var macro = root.HZ_FILM.make($('[data-macro-film]'), [macroShot.name], { eager: false });
+    if (macro.tier !== 'board') {
+      macroSec.hidden = false;
+      $('[data-macro-eyebrow]').textContent = m.name + ', close';
+      var beatEl = $('[data-macro-beat]'), beatNow = '';
+      UI.onScroll(function () {
+        var r = macroSec.getBoundingClientRect(), vh = window.innerHeight;
+        if (macro.load && r.top < vh * 2.5) macro.load();
+        if (r.bottom < 0 || r.top > vh) return;
+        var p = UI.clamp(-r.top / (r.height - vh), 0, 1);
+        macro.set(p);
+        var b = macroShot.beats[0];
+        macroShot.beats.forEach(function (x) { if (p >= x.at) b = x; });
+        if (b.text !== beatNow) { beatNow = b.text; beatEl.textContent = b.text; }
+      });
+    }
+  }
+
   /* ── scroll: the watch settles, the bar arrives, the hour photo eases in ── */
   var barEl = $('[data-buybar]');
   var hourSec = $('.wp-hour'), hourImg = $('[data-hour-img]');

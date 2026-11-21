@@ -355,6 +355,30 @@
     delete o.duration;
     return o;
   };
+  /* The Arktos macro: one 4K film for the watch page. The dial in near darkness, then a thin beam of light
+     sweeps across it and the lume comes alive. The dark frame is made from the master; the lit frame from the dark one. */
+  var MACRO = 'Photoreal luxury watch macro photography, 100mm macro lens, focus-stacked so the whole dial is sharp edge to edge, very fine grain. ' +
+    'Extreme close-up, seen straight on: the round dial fills the full height of the frame, centred, the polished platinum case edge just visible at the left and right of the dial, pure black beyond it. ';
+  shots.push(
+    gpt({
+      id: 'arktos-macro-dark', stage: 2, aspect: '16:9', tone: 'night', model_of: 'arktos', refs: ['higgsfield/renders/arktos-front.png'],
+      used: ['Arktos page: first frame of the macro film'],
+      alt: 'The Arktos dial in near darkness, the aventurine barely glinting.',
+      brief: 'Macro, near darkness: the Arktos dial fills the frame, only faint moonlight, a few copper flecks glinting, the lume faint green.',
+      prompt: MACRO + 'The dial of ' + WATCH.arktos + ', the hands at ten past ten. Almost total darkness: only a faint cool moonlight from the upper left; ' +
+        'the aventurine is a deep near-black blue with a few copper flecks barely glinting; the luminous hands and markers glow faintly green. ' + SAME + ' ' + NEG,
+    }),
+    gpt({
+      id: 'arktos-macro-lit', stage: 3, aspect: '16:9', tone: 'night', model_of: 'arktos', refs: ['higgsfield/renders/arktos-macro-dark.png'],
+      used: ['Arktos page: last frame of the macro film'],
+      alt: 'The Arktos dial lit by a thin beam of light, the aventurine sparkling, the lume glowing green.',
+      brief: 'The same frame, lit: a thin raking beam across the dial, every fleck of the aventurine sparkling, the hands bright, the lume vivid green.',
+      prompt: 'The same frame as the reference image, a moment later. Same camera position, lens, framing and watch; nothing has moved. ' +
+        'A thin soft beam of warm light now rakes across the dial from the left: every copper and silver fleck of the aventurine sparkles like a field of stars, ' +
+        'the polished white gold hands catch one bright highlight along their edges, the moon in its window glows gold, and the luminous hands and markers glow a vivid green. ' + NEG,
+    })
+  );
+
   var TL = 'One continuous time-lapse shot, no cuts, the camera locked off and perfectly still. ';
   var STEADY = ' Smooth, steady, natural motion, no flicker, constant framing. No text, no logos.';
   var films = [
@@ -395,6 +419,17 @@
         'Only the lid moves; the box, the camera and the light stay still. Slow and smooth, constant exposure. No text, no logos.',
     }),
   ];
+
+  films.push(film({
+    id: 'film-arktos-macro', name: 'arktos-macro', start: 'arktos-macro-dark', end: 'arktos-macro-lit', focus: 0.5, scene: 'arktos', width: 2560,
+    used: ['Arktos page: the macro film, scrubbed by scrolling'],
+    alt: 'In near darkness, a beam of light sweeps across the Arktos dial; the aventurine sparkles and the hands begin to glow.',
+    brief: 'Macro, 4K, 5 s: in near darkness a thin beam sweeps across the dial; the aventurine sparkles, the lume comes alive. Nothing else moves.',
+    beats: [{ at: 0, text: 'Lights out.' }, { at: 0.4, text: 'A thread of light across the aventurine.' }, { at: 0.85, text: 'The hands begin to glow.' }],
+    prompt: 'One continuous macro shot, no cuts, locked-off camera with a very slow push-in. In near darkness a thin beam of light slowly sweeps across the watch dial from left to right, ' +
+      'lighting the copper flecks of the aventurine one by one like stars; the luminous hands and markers glow steadily brighter green. The watch and its hands do not move. Slow, smooth, constant framing. No text, no logos.',
+  }));
+  films[films.length - 1].params.resolution = '4k';
 
   var all = shots.concat(films);
   root.HORAE_SHOTS = {

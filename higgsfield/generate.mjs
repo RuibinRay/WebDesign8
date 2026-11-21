@@ -32,7 +32,7 @@ const CONCURRENCY = Number(process.env.HF_CONCURRENCY || 4);
 const DEFAULT_BIN = path.join(process.env.LOCALAPPDATA || '', 'Programs/higgsfield-cli/hf.exe');
 const HF = process.env.HF_BIN || (fs.existsSync(DEFAULT_BIN) ? DEFAULT_BIN : 'higgsfield');
 /* a film cannot be priced by the CLI before its stills exist: credits quoted on 2026-11-20 */
-const QUOTED = { kling4_0: { 5: 18.75, 10: 37.5 } };
+const QUOTED = { kling4_0: { '1080p': { 5: 18.75, 10: 37.5 }, '4k': { 5: 45, 10: 90 } } };
 
 /* ── load the shot list (a browser script) ── */
 const ctx = {};
@@ -103,7 +103,7 @@ const queue = wanted.filter((s) => FORCE || !renderOf(s.id)).sort((a, b) => a.st
 /* ── plan: price every job (free), show the balance ── */
 const prices = {};
 async function priceOf(s) {
-  if (s.model in QUOTED) return QUOTED[s.model][s.params.duration] ?? null;
+  if (s.model in QUOTED) return QUOTED[s.model][s.params.resolution || '1080p']?.[s.params.duration] ?? null;
   const key = s.model + JSON.stringify(paramsOf(s)) + s.aspect;
   if (!(key in prices)) {
     try { prices[key] = JSON.parse(await hf(['generate', 'cost', ...argsOf(s, []), '--json'])).credits; }

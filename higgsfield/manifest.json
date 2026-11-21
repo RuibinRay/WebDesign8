@@ -708,6 +708,59 @@
       "file": "higgsfield/renders/film-box.mp4",
       "seconds": 210,
       "at": "2026-11-21T03:36:34.475Z"
+    },
+    "arktos-macro-dark": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "2e42782d-5a98-4bc9-ae2b-39d00358c2c7",
+      "file": "higgsfield/renders/arktos-macro-dark.png",
+      "seconds": 43,
+      "at": "2026-11-21T15:20:41.653Z"
+    },
+    "arktos-macro-lit": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/arktos-macro-dark.png"
+      ],
+      "job_id": "74d61f9e-6f57-4e82-96b0-79a6ab26b52f",
+      "file": "higgsfield/renders/arktos-macro-lit.png",
+      "seconds": 43,
+      "at": "2026-11-21T15:21:24.520Z"
+    },
+    "film-arktos-macro": {
+      "status": "done",
+      "kind": "film",
+      "model": "kling4_0",
+      "params": {
+        "mode": "image-to-video",
+        "duration": 5,
+        "resolution": "4k"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/arktos-macro-dark.png",
+        "higgsfield/renders/arktos-macro-lit.png"
+      ],
+      "job_id": "cbc27ddf-c4cf-4eae-968b-ddb2d8d35c8d",
+      "file": "higgsfield/renders/film-arktos-macro.mp4",
+      "seconds": 221,
+      "at": "2026-11-21T15:25:27.767Z"
     }
   }
 }

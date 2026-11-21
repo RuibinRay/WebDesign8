@@ -64,6 +64,17 @@
       </div>
     </section>
 
+    <!-- the macro film: pinned, played by scrolling; shown only for a watch whose film or stills exist -->
+    <section class="wp-macro" data-macro data-tone="dark" aria-label="The dial, close" hidden>
+      <div class="wp-macro__stage">
+        <div class="wp-macro__film" data-macro-film aria-hidden="true"></div>
+        <div class="wp-macro__copy">
+          <p class="eyebrow" data-macro-eyebrow>Close</p>
+          <p class="wp-macro__beat" data-macro-beat aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
     <section class="wp-gallery" data-tone="light" aria-labelledby="g-title">
       <p class="eyebrow rv">Every angle</p>
       <h2 class="h2" id="g-title" data-split>Turn it over.</h2>
@@ -137,6 +148,7 @@
     })();
   </script>
   <script src="js/media.js"></script>
+  <script src="js/film.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
   <script src="js/common.js"></script>
   <script src="js/watch-page.js"></script>
