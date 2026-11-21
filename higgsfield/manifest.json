@@ -1,0 +1,713 @@
+{
+  "images": {
+    "box-closed": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [],
+      "job_id": "cec7bf16-e1c7-43b5-968c-fa934a78278d",
+      "file": "higgsfield/renders/box-closed.png",
+      "seconds": 24,
+      "at": "2026-11-21T01:57:30.665Z"
+    },
+    "day-dawn": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [],
+      "job_id": "a0328c2a-bf12-47ca-9837-bbd89892a595",
+      "file": "higgsfield/renders/day-dawn.png",
+      "seconds": 29,
+      "at": "2026-11-21T01:50:23.436Z"
+    },
+    "box-open": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/box-closed.png"
+      ],
+      "job_id": "3cec863b-6d08-4da7-b53e-6ab29aad7e87",
+      "file": "higgsfield/renders/box-open.png",
+      "seconds": 35,
+      "at": "2026-11-21T01:58:05.889Z"
+    },
+    "day-night": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/day-dawn.png"
+      ],
+      "job_id": "531c3ccf-1d8a-4803-b331-e30ce88d824f",
+      "file": "higgsfield/renders/day-night.png",
+      "seconds": 44,
+      "at": "2026-11-21T01:51:25.689Z"
+    },
+    "day-noon": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/day-dawn.png"
+      ],
+      "job_id": "ac0146f5-4675-439d-bee0-664e47e76405",
+      "file": "higgsfield/renders/day-noon.png",
+      "seconds": 46,
+      "at": "2026-11-21T01:51:27.497Z"
+    },
+    "day-dusk": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/day-dawn.png"
+      ],
+      "job_id": "bad69fa2-fce5-4afb-9553-3b24a3ad03dc",
+      "file": "higgsfield/renders/day-dusk.png",
+      "seconds": 46,
+      "at": "2026-11-21T01:51:27.790Z"
+    },
+    "mesembria-front": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [],
+      "job_id": "3d6515e8-c786-4f9f-be54-80d09d84e587",
+      "file": "higgsfield/renders/mesembria-front.png",
+      "seconds": 33,
+      "at": "2026-11-21T02:11:00.324Z"
+    },
+    "hesperis-front": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [],
+      "job_id": "d7937ff6-56fd-4c7d-926c-40545df136e4",
+      "file": "higgsfield/renders/hesperis-front.png",
+      "seconds": 35,
+      "at": "2026-11-21T02:11:02.960Z"
+    },
+    "anatole-front": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [],
+      "job_id": "c05f30c7-65eb-4f8b-b8d7-6a97ca458541",
+      "file": "higgsfield/renders/anatole-front.png",
+      "seconds": 35,
+      "at": "2026-11-21T02:11:03.006Z"
+    },
+    "arktos-front": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [],
+      "job_id": "8c5bb682-a80e-4500-aa7f-e74f52d261b9",
+      "file": "higgsfield/renders/arktos-front.png",
+      "seconds": 36,
+      "at": "2026-11-21T02:11:03.413Z"
+    },
+    "anatole-plate": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/anatole-front.png"
+      ],
+      "job_id": "eed29226-0a10-49f1-8be5-021913691201",
+      "file": "higgsfield/renders/anatole-plate.png",
+      "seconds": 42,
+      "at": "2026-11-21T02:12:08.627Z"
+    },
+    "mesembria-plate": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/mesembria-front.png"
+      ],
+      "job_id": "236f5840-e083-4201-ba08-56f61c89f4ea",
+      "file": "higgsfield/renders/mesembria-plate.png",
+      "seconds": 46,
+      "at": "2026-11-21T02:12:12.565Z"
+    },
+    "anatole-back": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/anatole-front.png"
+      ],
+      "job_id": "18d2b3ab-6780-4363-8f6d-66d3aebe50f4",
+      "file": "higgsfield/renders/anatole-back.png",
+      "seconds": 47,
+      "at": "2026-11-21T02:12:14.175Z"
+    },
+    "mesembria-back": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/mesembria-front.png"
+      ],
+      "job_id": "6c02c6a5-63e0-43d7-b3d1-108cf2f0a071",
+      "file": "higgsfield/renders/mesembria-back.png",
+      "seconds": 56,
+      "at": "2026-11-21T02:12:22.499Z"
+    },
+    "hesperis-back": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/hesperis-front.png"
+      ],
+      "job_id": "e656080f-b3ea-4fbd-9a54-d4c7c803aaf4",
+      "file": "higgsfield/renders/hesperis-back.png",
+      "seconds": 45,
+      "at": "2026-11-21T02:12:53.853Z"
+    },
+    "hesperis-plate": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/hesperis-front.png"
+      ],
+      "job_id": "455a2faf-d161-4087-8476-f85071a64e8e",
+      "file": "higgsfield/renders/hesperis-plate.png",
+      "seconds": 45,
+      "at": "2026-11-21T02:12:57.737Z"
+    },
+    "arktos-back": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "a133ca50-0995-44f5-b05f-17eb9f46902d",
+      "file": "higgsfield/renders/arktos-back.png",
+      "seconds": 49,
+      "at": "2026-11-21T02:13:03.454Z"
+    },
+    "arktos-plate": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "260613c7-4b88-490c-bed5-b1cc026b2971",
+      "file": "higgsfield/renders/arktos-plate.png",
+      "seconds": 43,
+      "at": "2026-11-21T02:13:05.210Z"
+    },
+    "arktos-plate-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/arktos-plate.png"
+      ],
+      "job_id": "3f114aa8-584f-4a7c-b169-76504a603d6c",
+      "file": "higgsfield/renders/arktos-plate-cut.png",
+      "seconds": 52,
+      "at": "2026-11-21T02:14:55.447Z"
+    },
+    "mesembria-plate-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/mesembria-plate.png"
+      ],
+      "job_id": "ccb3bf28-2193-4ceb-ae0f-97ea1494171e",
+      "file": "higgsfield/renders/mesembria-plate-cut.png",
+      "seconds": 22,
+      "at": "2026-11-21T02:16:19.333Z"
+    },
+    "anatole-back-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/anatole-back.png"
+      ],
+      "job_id": "0a09b380-24e6-4105-8e9d-ee18fcbb0263",
+      "file": "higgsfield/renders/anatole-back-cut.png",
+      "seconds": 19,
+      "at": "2026-11-21T02:15:26.083Z"
+    },
+    "mesembria-back-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/mesembria-back.png"
+      ],
+      "job_id": "4bce3beb-1d51-4791-831c-1210002300fa",
+      "file": "higgsfield/renders/mesembria-back-cut.png",
+      "seconds": 22,
+      "at": "2026-11-21T02:15:28.745Z"
+    },
+    "anatole-plate-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/anatole-plate.png"
+      ],
+      "job_id": "cace3581-b911-4ba9-88a8-4ea6c6ece7ca",
+      "file": "higgsfield/renders/anatole-plate-cut.png",
+      "seconds": 22,
+      "at": "2026-11-21T02:15:29.374Z"
+    },
+    "arktos-back-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/arktos-back.png"
+      ],
+      "job_id": "81a9f504-d2ce-4862-82c9-b1ed426de903",
+      "file": "higgsfield/renders/arktos-back-cut.png",
+      "seconds": 19,
+      "at": "2026-11-21T02:16:16.604Z"
+    },
+    "hesperis-back-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/hesperis-back.png"
+      ],
+      "job_id": "aee64aaa-11fe-47ed-879d-eecf669e29fc",
+      "file": "higgsfield/renders/hesperis-back-cut.png",
+      "seconds": 23,
+      "at": "2026-11-21T02:15:31.417Z"
+    },
+    "hesperis-plate-cut": {
+      "status": "done",
+      "kind": "cutout",
+      "model": "image_background_remover",
+      "inputs": [
+        "higgsfield/renders/hesperis-plate.png"
+      ],
+      "job_id": "3a13e4df-6270-4f4e-bbac-f6baa9312b6e",
+      "file": "higgsfield/renders/hesperis-plate-cut.png",
+      "seconds": 21,
+      "at": "2026-11-21T02:15:46.699Z"
+    },
+    "atelier-bench": {
+      "status": "done",
+      "kind": "image",
+      "model": "soul_cinematic",
+      "params": {
+        "quality": "2k"
+      },
+      "aspect": "3:4",
+      "inputs": [],
+      "job_id": "571f8148-4b8d-4610-9be7-4dddea453ea9",
+      "file": "higgsfield/renders/atelier-bench.png",
+      "seconds": 17,
+      "at": "2026-11-21T02:30:29.989Z"
+    },
+    "atelier-perlage": {
+      "status": "done",
+      "kind": "image",
+      "model": "soul_cinematic",
+      "params": {
+        "quality": "2k"
+      },
+      "aspect": "3:4",
+      "inputs": [],
+      "job_id": "66582c6a-6253-4c69-80e9-cec597bb49f4",
+      "file": "higgsfield/renders/atelier-perlage.png",
+      "seconds": 17,
+      "at": "2026-11-21T02:30:30.580Z"
+    },
+    "atelier-enamel": {
+      "status": "done",
+      "kind": "image",
+      "model": "soul_cinematic",
+      "params": {
+        "quality": "2k"
+      },
+      "aspect": "3:4",
+      "inputs": [],
+      "job_id": "09370776-f3c0-4810-bd99-2aedae8f0184",
+      "file": "higgsfield/renders/atelier-enamel.png",
+      "seconds": 17,
+      "at": "2026-11-21T02:40:54.311Z"
+    },
+    "atelier-anglage": {
+      "status": "done",
+      "kind": "image",
+      "model": "soul_cinematic",
+      "params": {
+        "quality": "2k"
+      },
+      "aspect": "3:4",
+      "inputs": [],
+      "job_id": "411a4f12-c1e2-4727-91f8-a452ff37a883",
+      "file": "higgsfield/renders/atelier-anglage.png",
+      "seconds": 20,
+      "at": "2026-11-21T02:30:32.953Z"
+    },
+    "story-sundial": {
+      "status": "done",
+      "kind": "image",
+      "model": "soul_cinematic",
+      "params": {
+        "quality": "2k"
+      },
+      "aspect": "3:4",
+      "inputs": [],
+      "job_id": "9130b58a-38f8-4ddd-97d7-3351ad9c2924",
+      "file": "higgsfield/renders/story-sundial.png",
+      "seconds": 17,
+      "at": "2026-11-21T02:40:54.332Z"
+    },
+    "anatole-wrist": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "3:2",
+      "inputs": [
+        "higgsfield/renders/anatole-front.png"
+      ],
+      "job_id": "1689c3a5-d62b-45c6-87b6-e68026c0c38c",
+      "file": "higgsfield/renders/anatole-wrist.png",
+      "seconds": 39,
+      "at": "2026-11-21T02:33:52.316Z"
+    },
+    "mesembria-wrist": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "3:2",
+      "inputs": [
+        "higgsfield/renders/mesembria-front.png"
+      ],
+      "job_id": "b09b9faf-c5c4-499b-9d90-7d4338212899",
+      "file": "higgsfield/renders/mesembria-wrist.png",
+      "seconds": 46,
+      "at": "2026-11-21T02:31:32.701Z"
+    },
+    "anatole-angle": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/anatole-front.png"
+      ],
+      "job_id": "7642ea8a-99fe-46c4-870f-504bd01cb753",
+      "file": "higgsfield/renders/anatole-angle.png",
+      "seconds": 49,
+      "at": "2026-11-21T02:31:35.707Z"
+    },
+    "hesperis-angle": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/hesperis-front.png"
+      ],
+      "job_id": "3cbd37f2-2173-412e-a17e-9a75be11c13e",
+      "file": "higgsfield/renders/hesperis-angle.png",
+      "seconds": 49,
+      "at": "2026-11-21T02:31:39.787Z"
+    },
+    "mesembria-angle": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/mesembria-front.png"
+      ],
+      "job_id": "02270ed3-b3bb-4f2a-b832-d273de6410d3",
+      "file": "higgsfield/renders/mesembria-angle.png",
+      "seconds": 54,
+      "at": "2026-11-21T02:31:40.771Z"
+    },
+    "hesperis-wrist": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "3:2",
+      "inputs": [
+        "higgsfield/renders/hesperis-front.png"
+      ],
+      "job_id": "49d01064-e2ea-4279-b0fe-318d38b66a9a",
+      "file": "higgsfield/renders/hesperis-wrist.png",
+      "seconds": 39,
+      "at": "2026-11-21T02:32:12.140Z"
+    },
+    "arktos-angle": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "4:5",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "95a065a9-825c-4f28-83e6-432ab19c76f9",
+      "file": "higgsfield/renders/arktos-angle.png",
+      "seconds": 45,
+      "at": "2026-11-21T02:32:20.876Z"
+    },
+    "arktos-wrist": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "3:2",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "729ac6bf-0df9-49ec-afb5-30437072c3fc",
+      "file": "higgsfield/renders/arktos-wrist.png",
+      "seconds": 42,
+      "at": "2026-11-21T02:32:22.248Z"
+    },
+    "family": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/anatole-front.png",
+        "higgsfield/renders/mesembria-front.png",
+        "higgsfield/renders/hesperis-front.png",
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "57280461-0e99-43db-95f5-1a714cc6fee7",
+      "file": "higgsfield/renders/family.png",
+      "seconds": 54,
+      "at": "2026-11-21T02:32:35.252Z"
+    },
+    "closing": {
+      "status": "done",
+      "kind": "image",
+      "model": "gpt_image_2_6",
+      "params": {
+        "resolution": "2k",
+        "quality": "high"
+      },
+      "aspect": "21:9",
+      "inputs": [
+        "higgsfield/renders/arktos-front.png"
+      ],
+      "job_id": "9845f3cf-daf9-4a08-8ce9-0f551fdc322c",
+      "file": "higgsfield/renders/closing.png",
+      "seconds": 37,
+      "at": "2026-11-21T02:32:49.452Z"
+    },
+    "film-day-pm": {
+      "status": "done",
+      "kind": "film",
+      "model": "kling4_0",
+      "params": {
+        "mode": "image-to-video",
+        "duration": 5,
+        "resolution": "1080p"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/day-noon.png",
+        "higgsfield/renders/day-dusk.png"
+      ],
+      "job_id": "f72e1f60-a25f-455a-8feb-0e36461167f6",
+      "file": "higgsfield/renders/film-day-pm.mp4",
+      "seconds": 208,
+      "at": "2026-11-21T04:41:52.507Z"
+    },
+    "film-day-eve": {
+      "status": "done",
+      "kind": "film",
+      "model": "kling4_0",
+      "params": {
+        "mode": "image-to-video",
+        "duration": 5,
+        "resolution": "1080p"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/day-dusk.png",
+        "higgsfield/renders/day-night.png"
+      ],
+      "job_id": "dea667e6-23fd-4508-8a0c-de1ecbda339e",
+      "file": "higgsfield/renders/film-day-eve.mp4",
+      "seconds": 176,
+      "at": "2026-11-21T03:33:04.268Z"
+    },
+    "film-day-am": {
+      "status": "done",
+      "kind": "film",
+      "model": "kling4_0",
+      "params": {
+        "mode": "image-to-video",
+        "duration": 5,
+        "resolution": "1080p"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/day-dawn.png",
+        "higgsfield/renders/day-noon.png"
+      ],
+      "job_id": "e348aad6-cd08-4f7c-91ee-4e844deebf5b",
+      "file": "higgsfield/renders/film-day-am.mp4",
+      "seconds": 189,
+      "at": "2026-11-21T03:33:11.748Z"
+    },
+    "film-box": {
+      "status": "done",
+      "kind": "film",
+      "model": "kling4_0",
+      "params": {
+        "mode": "image-to-video",
+        "duration": 5,
+        "resolution": "1080p"
+      },
+      "aspect": "16:9",
+      "inputs": [
+        "higgsfield/renders/box-closed.png",
+        "higgsfield/renders/box-open.png"
+      ],
+      "job_id": "8c55dd07-baa0-44d7-a18d-ec4d360834b7",
+      "file": "higgsfield/renders/film-box.mp4",
+      "seconds": 210,
+      "at": "2026-11-21T03:36:34.475Z"
+    }
+  }
+}

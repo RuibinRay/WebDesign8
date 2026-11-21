@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Watch · Horæ</title>
+  <meta name="description" content="A Horæ watch, made by hand around one hour of the day.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <meta name="theme-color" content="#0A0E1C">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Jost:wght@300..600&display=swap">
+  <link rel="stylesheet" href="css/horae.css">
+  <!-- hold the first paint until the page scripts have run, so a page morph finds its named elements -->
+  <link rel="expect" href="#vt-ready" blocking="render">
+  <script src="js/motion.js"></script>
+</head>
+<body class="watch-page">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav data-on="dark">
+    <nav class="nav__in" aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="index.html#hours">The four hours</a></li>
+        <li><a href="index.html#set">The set</a></li>
+        <li><a href="index.html#calibre">Calibre</a></li>
+        <li><a href="index.html#atelier">Atelier</a></li>
+      </ul>
+      <a class="brand" href="index.html" aria-label="Horæ, home"><span class="brand__mark" data-mark></span><span class="brand__word">HORÆ</span></a>
+      <div class="nav__end">
+        <button class="nav__motion" type="button" data-motion-toggle aria-pressed="false" aria-label="Reduce motion"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.2"/><path class="nav__motion-hand" d="M10 10V4.6"/><circle cx="10" cy="10" r="1.1" class="nav__motion-pin"/></svg><span data-motion-label>Reduce motion</span></button>
+        <a class="nav__cta" href="index.html#reserve" data-res>Reserve <span class="count" data-res-count hidden>0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="wp-hero tone-dark" data-hero data-tone="dark">
+      <div class="wp-hero__watch" data-hero-watch aria-hidden="true"></div>
+      <div class="wp-hero__copy">
+        <p class="wp-crumb"><a href="index.html#hours">The four hours</a> / <span data-f="hour"></span></p>
+        <p class="eyebrow" data-f="eyebrow"></p>
+        <h1 class="wp-hero__name" data-f="name"></h1>
+        <p class="wp-hero__kicker" data-f="kicker"></p>
+        <p class="wp-hero__line" data-f="line"></p>
+        <p class="wp-hero__price" data-f="price"></p>
+        <p class="wp-hero__made" data-f="made"></p>
+        <fieldset class="straps">
+          <legend>Strap</legend>
+          <div class="straps__row" data-straps></div>
+        </fieldset>
+        <div class="wp-hero__cta">
+          <button class="btn btn--gold" type="button" data-reserve>Reserve this watch</button>
+          <a class="link" href="index.html#reserve">Book a private viewing</a>
+        </div>
+        <div class="wp-hero__tools">
+        <div class="toggle-hour" role="group" aria-label="Show the watch at">
+          <button type="button" data-show="now" aria-pressed="true"><span>Your time</span></button>
+          <button type="button" data-show="hour" aria-pressed="false"><span data-f="its-hour">Its hour</span></button>
+        </div>
+        <button type="button" class="link wp-flip" data-flip aria-pressed="false">See the back</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-gallery" data-tone="light" aria-labelledby="g-title">
+      <p class="eyebrow rv">Every angle</p>
+      <h2 class="h2" id="g-title" data-split>Turn it over.</h2>
+      <div class="wp-gallery__grid" data-gallery></div>
+    </section>
+
+    <section class="wp-hour" data-tone="dark" aria-labelledby="h-title">
+      <div class="slot slot--fill" data-hour-img></div>
+      <div class="wp-hour__in">
+        <p class="eyebrow rv" data-f="hour-eyebrow"></p>
+        <h2 class="h2" id="h-title" data-f="hour-title"></h2>
+        <p class="lede rv" data-f="long-1"></p>
+        <p class="rv" data-f="long-2"></p>
+      </div>
+    </section>
+
+    <section class="wp-specs" data-tone="light" aria-labelledby="s-title">
+      <header>
+        <p class="eyebrow rv">Specifications</p>
+        <h2 class="h2" id="s-title" data-split>The details.</h2>
+        <p class="rv">Every watch is made to order and numbered on the caseback. Allow fourteen weeks.</p>
+        <a class="link rv" href="index.html#calibre">See the calibre taken apart</a>
+      </header>
+      <dl data-specs></dl>
+    </section>
+
+    <section class="wp-others" data-tone="dark" aria-labelledby="o-title">
+      <p class="eyebrow rv">The other hours</p>
+      <h2 class="h2" id="o-title" data-split>Three more <em>hours.</em></h2>
+      <div class="wp-others__grid" data-others></div>
+    </section>
+  </main>
+
+  <div class="buybar" data-buybar aria-hidden="true">
+    <div class="buybar__w" data-bar-watch></div>
+    <div><div class="buybar__name" data-f="name"></div><div class="buybar__price" data-f="bar-price"></div></div>
+    <button class="btn btn--gold" type="button" data-reserve tabindex="-1">Reserve</button>
+  </div>
+
+  <footer class="foot" data-tone="dark">
+    <div class="foot__top">
+      <a class="brand brand--big" href="index.html" aria-label="Horæ, home"><span class="brand__mark" data-mark></span><span class="brand__word">HORÆ</span></a>
+      <p class="foot__tag">Every hour has a name.</p>
+    </div>
+    <div class="foot__cols">
+      <div><h3>Watches</h3><ul data-foot-models></ul></div>
+      <div><h3>House</h3><ul><li><a href="index.html#calibre">The calibre</a></li><li><a href="index.html#atelier">The atelier</a></li><li><a href="breakdown.html">The breakdown</a></li></ul></div>
+      <div><h3>Service</h3><ul><li>Care and servicing</li><li>Ten-year warranty</li><li>Private viewings</li></ul></div>
+    </div>
+    <div class="foot__base">
+      <p>© <span data-year>2026</span> Horæ. A concept brand.</p>
+    </div>
+  </footer>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="assets/img/ready.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/shots.js"></script>
+  <script src="js/art.js"></script>
+  <script>
+    /* fill the image slots for this watch before media.js runs */
+    (function () {
+      var m = (new URLSearchParams(location.search).get('m') || '').toLowerCase();
+      if (!window.HORAE.byId[m]) m = 'anatole';
+      window.HORAE.current = m;
+      document.querySelector('[data-gallery]').innerHTML = [
+        ['front', 'Face on'], ['angle', 'The case side and crown'], ['back', 'Through the sapphire back'],
+      ].map(function (g) { return '<figure class="rv"><div class="slot" data-shot="' + m + '-' + g[0] + '" data-img-sizes="(max-width: 860px) 100vw, 30vw"></div><figcaption>' + g[1] + '</figcaption></figure>'; }).join('');
+      document.querySelector('[data-hour-img]').setAttribute('data-shot', m + '-wrist');
+    })();
+  </script>
+  <script src="js/media.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/watch-page.js"></script>
+  <i id="vt-ready" hidden></i>
+</body>
+</html>

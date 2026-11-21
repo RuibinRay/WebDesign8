@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shot sheet · Horæ</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Jost:wght@300..600&display=swap">
+  <link rel="stylesheet" href="css/horae.css">
+  <script src="js/motion.js"></script>
+  <style>
+    body { background: var(--paper); color: var(--ink); }
+    .sheet { padding: 48px var(--pad) 96px; }
+    .sheet__head { display: grid; gap: 18px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .sheet__title { display: flex; align-items: center; gap: 14px; }
+    .sheet__title .brand__mark { width: 36px; height: 36px; }
+    .sheet h1 { font-family: var(--f-serif); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 1; margin: 0; }
+    .stats { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stat { padding: 10px 14px; border: 1px solid var(--line); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .stat b { font-family: var(--f-serif); font-size: 22px; font-weight: 400; margin-right: 6px; letter-spacing: 0; }
+    .routes { display: grid; gap: 8px; }
+    @media (min-width: 900px) { .routes { grid-template-columns: 1fr 1fr; } }
+    .route { padding: 20px 22px; background: var(--enamel); border: 1px solid var(--line); }
+    .route h2 { margin: 0 0 10px; font-family: var(--f-serif); font-weight: 400; font-size: 22px; }
+    .route ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 15px; }
+    code, pre { font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; font-size: 12.5px; }
+    code { background: rgba(23, 20, 15, .07); padding: 2px 6px; }
+    details.look { border: 1px solid var(--line); background: var(--enamel); }
+    details.look summary { padding: 14px 20px; cursor: pointer; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+    details.look dl { margin: 0; padding: 0 20px 20px; display: grid; gap: 12px; }
+    details.look dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+    details.look dd { margin: 0; font-size: 14px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 28px 0 18px; }
+    .filters button { min-height: 40px; padding: 0 16px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; }
+    .filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .shots { display: grid; gap: 10px; }
+    .shot { display: grid; gap: 22px; padding: 18px; background: var(--enamel); border: 1px solid var(--line); }
+    @media (min-width: 980px) { .shot { grid-template-columns: 240px minmax(0, 1fr); } }
+    .shot .slot { width: 100%; max-height: 320px; }
+    .shot .slot__brief { display: none; }
+    .shot__meta { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; margin-bottom: 10px; }
+    .shot__id { font-family: var(--f-serif); font-size: 26px; margin-right: 8px; }
+    .chip { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; padding: 4px 9px; border: 1px solid var(--line); }
+    .chip--ready { background: #CFE9D6; border-color: #CFE9D6; }
+    .chip--pending { background: rgba(201, 164, 106, .18); border-color: transparent; color: #7A5A22; }
+    .shot__brief { margin: 0 0 6px; font-size: 15.5px; }
+    .shot__used, .shot__file { margin: 0 0 10px; font-size: 13px; color: var(--ink-2); }
+    .shot pre { margin: 0; white-space: pre-wrap; word-break: break-word; max-height: 170px; overflow: auto; padding: 14px; background: var(--paper); border: 1px solid var(--line); line-height: 1.6; }
+    .shot__actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .shot__actions button { min-height: 38px; padding: 0 14px; border: 1px solid var(--ink); background: transparent; cursor: pointer; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .shot__actions button:first-child { background: var(--ink); color: var(--paper); }
+    .shot__actions button.done { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+    .back { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="sheet__head">
+      <a class="back" href="breakdown.html">← The breakdown</a>
+      <div class="sheet__title"><span class="brand__mark" data-mark></span><h1>Shot sheet</h1></div>
+      <p style="margin:0;max-width:46em">Every image and scroll film the Horæ site needs. The six film stills are made; the rest is not. Each prompt carries the same look bible word for word, and every stage 2 shot takes its watch’s master as a reference image, so the same watch appears in every picture. Stage 3 makes each film’s later stills from its first one, so both ends share one camera; stage 4 turns each pair into a film.</p>
+      <div class="stats" data-stats></div>
+      <div class="routes">
+        <div class="route">
+          <h2>Automatic (Higgsfield CLI)</h2>
+          <ol>
+            <li><code>node higgsfield/generate.mjs</code> prints the plan, the cost of each image and the balance. It spends nothing.</li>
+            <li><code>node higgsfield/generate.mjs --go</code> makes stage 1, then stage 2 with the masters as references, then stage 3 (the films’ later stills) and stage 4 (the films), then runs the optimiser. Look at the stage 3 stills beside their first frames before letting stage 4 run: <code>node higgsfield/generate.mjs images --go</code> stops before the films.</li>
+            <li>Re-roll one: <code>node higgsfield/generate.mjs family --go --force</code></li>
+          </ol>
+        </div>
+        <div class="route">
+          <h2>By hand (Higgsfield app)</h2>
+          <ol>
+            <li>Copy a prompt below. Use the model and aspect it shows; for stages 2 and 3 attach the named reference image; for a film, give Kling 4.0 the start and end frames shown.</li>
+            <li>Save the download as <code>higgsfield/renders/&lt;id&gt;.png</code> (films: <code>&lt;id&gt;.mp4</code>; cutting them into frames needs ffmpeg).</li>
+            <li>Run <code>npm install</code> once, then <code>node higgsfield/optimize.mjs</code>, and reload.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="look"><summary>The look bible (shared prompt blocks)</summary><dl data-look></dl></details>
+    </div>
+    <div class="filters" role="group" aria-label="Filter shots" data-filters>
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="1" aria-pressed="false">Stage 1</button>
+      <button type="button" data-f="2" aria-pressed="false">Stage 2</button>
+      <button type="button" data-f="3" aria-pressed="false">Stage 3</button>
+      <button type="button" data-f="4" aria-pressed="false">Films</button>
+      <button type="button" data-f="pending" aria-pressed="false">Not made yet</button>
+    </div>
+    <div class="shots" data-shots></div>
+  </main>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="assets/img/ready.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/shots.js"></script>
+  <script src="js/art.js"></script>
+  <script>
+    (function () {
+      var S = window.HORAE_SHOTS, ready = {};
+      ((window.HORAE_READY || {}).img || []).forEach(function (id) { ready[id] = 1; });
+      Object.keys((window.HORAE_READY || {}).film || {}).forEach(function (n) { ready['film-' + n] = 1; });
+      var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+      /* credits quoted on 2026-11-20; generate.mjs re-prices live before it spends */
+      var RATE = { gpt_image_2_6: 2.75, soul_cinematic: 0.12, kling4_0: 18.75 }; /* kling: per 5 s */
+      var price = function (s) { return (RATE[s.model] || 0) * (s.kind === 'film' ? s.params.duration / 5 : 1); };
+      var cost = S.all.reduce(function (a, s) { return a + price(s); }, 0);
+      var filmCost = S.films.reduce(function (a, s) { return a + price(s); }, 0);
+      var made = S.all.filter(function (s) { return ready[s.id]; }).length;
+      document.querySelector('[data-stats]').innerHTML =
+        '<span class="stat"><b>' + S.shots.length + '</b>images</span>' +
+        '<span class="stat"><b>' + S.shots.filter(function (s) { return s.stage === 1; }).length + '</b>stage 1</span>' +
+        '<span class="stat"><b>' + S.shots.filter(function (s) { return s.stage === 2; }).length + '</b>stage 2</span>' +
+        '<span class="stat"><b>' + S.shots.filter(function (s) { return s.stage === 3; }).length + '</b>stage 3</span>' +
+        '<span class="stat"><b>' + S.films.length + '</b>films (≈' + Math.round(filmCost) + ' cr)</span>' +
+        '<span class="stat"><b>' + made + '</b>made</span>' +
+        '<span class="stat"><b>≈' + Math.round(cost) + '</b>credits (2026-11-20 prices)</span>';
+      document.querySelector('[data-look]').innerHTML = Object.keys(S.look).map(function (k) { return '<dt>' + k + '</dt><dd>' + esc(S.look[k]) + '</dd>'; }).join('') +
+        Object.keys(S.watch).map(function (k) { return '<dt>WATCH · ' + k + '</dt><dd>' + esc(S.watch[k]) + '</dd>'; }).join('');
+      document.querySelector('[data-shots]').innerHTML = S.all.map(function (s) {
+        var p = s.params || {};
+        if (s.kind === 'film') return '<article class="shot" data-stage="4" data-ready="' + (ready[s.id] ? 1 : 0) + '" id="' + s.id + '"><div class="slot" data-shot="' + s.start + '"></div><div>' +
+          '<div class="shot__meta"><span class="shot__id">' + s.id + '</span>' +
+          '<span class="chip ' + (ready[s.id] ? 'chip--ready">Made' : 'chip--pending">Not made') + '</span>' +
+          '<span class="chip">Film · stage 4</span><span class="chip">' + s.model + '</span><span class="chip">' + s.aspect + '</span><span class="chip">' + p.duration + ' s ' + p.resolution + '</span><span class="chip">≈' + price(s).toFixed(2) + ' cr</span></div>' +
+          '<p class="shot__brief">' + esc(s.brief) + '</p>' +
+          '<p class="shot__used">Used on: ' + esc(s.used.join(' · ')) + '</p>' +
+          '<p class="shot__used">Beats: ' + s.beats.map(function (b) { return Math.round(b.at * 100) + '% ' + esc(b.text); }).join(' · ') + '</p>' +
+          '<p class="shot__file">Save as <code>higgsfield/renders/' + s.id + '.mp4</code> · Start frame: <code>' + s.start + '.png</code> · End frame: <code>' + s.end + '.png</code></p>' +
+          '<pre>' + esc(s.prompt) + '</pre>' +
+          '<div class="shot__actions"><button type="button" data-copy="prompt">Copy prompt</button><button type="button" data-copy="file">Copy file name</button></div>' +
+          '</div></article>';
+        return '<article class="shot" data-stage="' + s.stage + '" data-ready="' + (ready[s.id] ? 1 : 0) + '" id="' + s.id + '">' +
+          '<div class="slot" data-shot="' + s.id + '"></div><div>' +
+          '<div class="shot__meta"><span class="shot__id">' + s.id + '</span>' +
+          '<span class="chip ' + (ready[s.id] ? 'chip--ready">Made' : 'chip--pending">Not made') + '</span>' +
+          '<span class="chip">Stage ' + s.stage + '</span><span class="chip">' + s.model + '</span><span class="chip">' + s.aspect + '</span>' +
+          (p.resolution ? '<span class="chip">' + p.resolution + ' ' + (p.quality || '') + '</span>' : '<span class="chip">' + (p.quality || '') + '</span>') + '</div>' +
+          '<p class="shot__brief">' + esc(s.brief) + '</p>' +
+          '<p class="shot__used">Used on: ' + esc(s.used.join(' · ')) + '</p>' +
+          '<p class="shot__file">Save as <code>higgsfield/renders/' + s.id + '.png</code>' + (s.refs ? ' · Reference: ' + s.refs.map(function (r) { return '<code>' + r.split('/').pop() + '</code>'; }).join(' ') : '') + '</p>' +
+          '<pre>' + esc(s.prompt) + '</pre>' +
+          '<div class="shot__actions"><button type="button" data-copy="prompt">Copy prompt</button><button type="button" data-copy="file">Copy file name</button></div>' +
+          '</div></article>';
+      }).join('');
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-copy]');
+        if (!b) return;
+        var s = S.byId[b.closest('.shot').id];
+        var text = b.getAttribute('data-copy') === 'prompt' ? s.prompt : s.id + (s.kind === 'film' ? '.mp4' : '.png');
+        (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () {
+          var t = b.textContent; b.textContent = 'Copied'; b.classList.add('done');
+          setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1400);
+        }).catch(function () { window.prompt('Copy:', text); });
+      });
+      var fb = document.querySelectorAll('[data-filters] button');
+      Array.prototype.forEach.call(fb, function (b) {
+        b.addEventListener('click', function () {
+          var f = b.getAttribute('data-f');
+          Array.prototype.forEach.call(fb, function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+          Array.prototype.forEach.call(document.querySelectorAll('.shot'), function (el) {
+            el.hidden = !(f === 'all' || el.getAttribute('data-stage') === f || (f === 'pending' && el.getAttribute('data-ready') === '0'));
+          });
+        });
+      });
+    })();
+  </script>
+  <script src="js/media.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

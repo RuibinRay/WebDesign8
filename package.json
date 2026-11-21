@@ -1,0 +1,15 @@
+{
+  "name": "horae",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Horæ: every hour has a name. Concept luxury watch site, plain HTML/CSS/JS, images from Higgsfield.",
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "plan": "node higgsfield/generate.mjs",
+    "generate": "node higgsfield/generate.mjs --go",
+    "images": "node higgsfield/optimize.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

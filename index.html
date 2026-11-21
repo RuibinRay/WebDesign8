@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horæ · Every hour has a name</title>
+  <meta name="description" content="Horæ makes four mechanical watches by hand, each built around one named hour of the day: Anatole, Mesembria, Hesperis and Arktos.">
+  <meta property="og:title" content="Horæ · Every hour has a name">
+  <meta property="og:description" content="Four watches, made by hand, each built around one hour of the day.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <meta name="theme-color" content="#0A0E1C">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Jost:wght@300..600&display=swap">
+  <link rel="stylesheet" href="css/horae.css">
+  <!-- hold the first paint until the page scripts have run, so a page morph finds its named elements -->
+  <link rel="expect" href="#vt-ready" blocking="render">
+  <script src="js/motion.js"></script>
+</head>
+<body class="home">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav data-on="dark">
+    <nav class="nav__in" aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="#hours">The four hours</a></li>
+        <li><a href="#set">The set</a></li>
+        <li><a href="#calibre">Calibre</a></li>
+        <li><a href="#atelier">Atelier</a></li>
+      </ul>
+      <a class="brand" href="index.html" aria-label="Horæ, home"><span class="brand__mark" data-mark></span><span class="brand__word">HORÆ</span></a>
+      <div class="nav__end">
+        <button class="nav__motion" type="button" data-motion-toggle aria-pressed="false" aria-label="Reduce motion"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.2"/><path class="nav__motion-hand" d="M10 10V4.6"/><circle cx="10" cy="10" r="1.1" class="nav__motion-pin"/></svg><span data-motion-label>Reduce motion</span></button>
+        <a class="nav__cta" href="#reserve" data-res>Reserve <span class="count" data-res-count hidden>0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ═════════ 1 · ONE DAY (hero + the four watches, scroll scrubs the clock) ═════════ -->
+    <section class="day" id="day" aria-label="One day, four watches">
+      <div class="day__stage" data-day>
+        <div class="day__sky" aria-hidden="true">
+          <div class="day__film" data-day-film></div>
+          <div class="day__stars" data-stars></div>
+          <div class="day__sun"></div>
+          <div class="day__moon"></div>
+          <div class="day__halo"></div>
+        </div>
+
+        <div class="day__watch" data-day-watch aria-hidden="true"></div>
+        <p class="film-tag" data-day-film-tag hidden></p>
+        <div class="day__steps" data-day-steps>
+          <button type="button" data-day-step="-1" aria-label="Earlier: the watch before"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2.5 4.5 7 9 11.5"/></svg></button>
+          <span data-day-hint>Earlier · Later</span>
+          <button type="button" data-day-step="1" aria-label="Later: the next watch"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2.5 9.5 7 5 11.5"/></svg></button>
+        </div>
+
+        <div class="day__rail" aria-hidden="true">
+          <p class="day__clock" data-clock>05:30</p>
+          <ol data-rail></ol>
+        </div>
+
+        <div class="day__panel day__panel--hero" data-panel="hero">
+          <p class="eyebrow">Horæ · Mechanical watches, made by hand</p>
+          <h1 class="day__title">Every hour<br>has a name.</h1>
+          <p class="day__now" data-now aria-live="off">The Greeks gave every hour of the day a name. We make one watch for each of four.</p>
+          <p class="day__cue"><span>Scroll to live one day</span></p>
+        </div>
+        <!-- the four model panels are rendered here from js/data.js -->
+      </div>
+    </section>
+
+    <!-- ═════════ 2 · THE TWELVE NAMES ═════════ -->
+    <section class="names" id="names" data-tone="dark">
+      <div class="names__ring" data-ring aria-hidden="true"></div>
+      <div class="names__body">
+        <p class="eyebrow rv">The Horae</p>
+        <h2 class="h2" data-split>Before the hours were numbers, they had <em>names.</em></h2>
+        <p class="lede rv">The Greeks gave the day twelve keepers, the Horae: the sisters who opened the gates of the sky at dawn and closed them at night. Auge was first light. Mesembria was noon. Arktos was the night, named for the Bear, the stars that never set.</p>
+        <p class="rv">We build each watch around one of them: its light, its colour, the length of its shadow. Four so far. The other eight are on the rotor of every movement, engraved by hand.</p>
+      </div>
+      <figure class="names__img"><div class="iris" data-iris><div class="slot" data-shot="story-sundial"></div></div><i class="iris__ring" aria-hidden="true"></i></figure>
+    </section>
+
+    <!-- ═════════ 3 · THE CALIBRE, TAKEN APART ═════════ -->
+    <section class="cal" id="calibre" data-tone="dark" aria-labelledby="cal-title">
+      <div class="cal__stage" data-cal>
+        <div class="cal__head">
+          <p class="eyebrow">Calibre H·1L, taken apart</p>
+          <h2 class="h2" id="cal-title">214 parts.<br><em>One pair of hands.</em></h2>
+          <p class="cal__intro">Every movement is assembled, finished and regulated by one watchmaker, start to finish. Scroll, and it comes apart in the order it was built.</p>
+          <ul class="cal__stats" data-stats></ul>
+        </div>
+        <div class="cal__scene"><div class="cal__stack" data-stack></div></div>
+        <svg class="cal__lines" data-lines aria-hidden="true"></svg>
+        <ol class="cal__labels" data-labels></ol>
+        <p class="cal__hint" data-cal-hint>Keep scrolling</p>
+      </div>
+    </section>
+
+    <!-- ═════════ 4 · THE FOUR HOURS ═════════ -->
+    <section class="hours" id="hours" aria-labelledby="hours-title">
+      <header class="hours__intro" data-tone="light">
+        <div class="hours__copy">
+          <p class="eyebrow rv">The collection</p>
+          <h2 class="h2" id="hours-title" data-split>Four watches. <em>Four hours</em> of the day.</h2>
+          <p class="lede rv">Three hundred pieces a year, across the four. Each one is made to order and numbered on the caseback.</p>
+        </div>
+        <div class="slot rv" data-shot="family"></div>
+      </header>
+      <div class="hours__stack" data-cards></div>
+    </section>
+
+    <!-- ═════════ 4a · ON THE WRIST ═════════ -->
+    <section class="wrist" id="wrist" data-tone="light" aria-labelledby="wrist-title">
+      <header class="wrist__head">
+        <p class="eyebrow rv">On the wrist</p>
+        <h2 class="h2" id="wrist-title" data-split>How each one <em>sits.</em></h2>
+        <p class="lede rv">Four people, four hours, four wrists. Each photograph says whose wrist it is, so you can read the size against your own.</p>
+      </header>
+      <div class="wrist__grid" data-wrist-grid></div>
+      <div class="wrist__fit">
+        <div class="wrist__side">
+          <h3 class="wrist__h3">Side on, to scale</h3>
+          <p class="wrist__note">The four cases drawn from the side at their real sizes, on the same wrist line: case width, thickness and the reach of the lugs.</p>
+          <div class="wrist__profiles" data-wrist-profiles></div>
+        </div>
+        <div class="wrist__check">
+          <h3 class="wrist__h3">On your wrist</h3>
+          <label class="wrist__range"><span>Your wrist, measured round</span><output data-wrist-out>17 cm</output>
+            <input type="range" min="14" max="21" step="0.5" value="17" data-wrist-size aria-describedby="wrist-how"></label>
+          <p class="wrist__note" id="wrist-how">A watch sits well when its lugs stay inside the flat top of the wrist, about a third of the way round. Each bar is that flat top; the dark part is the watch, lug to lug.</p>
+          <ul class="wrist__bars" data-wrist-bars></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 4b · THE SET: an empty box, closed; it opens, the four go in, you check them off ═════════ -->
+    <section class="set" id="set" data-tone="dark" aria-labelledby="set-title">
+      <div class="set__stage" data-set>
+        <div class="set__copy">
+          <p class="eyebrow">The set · The Complete Day</p>
+          <h2 class="h2" id="set-title">One box.<br><em>The whole day.</em></h2>
+          <p class="set__intro" data-set-line></p>
+          <p class="set__status" data-set-status>Closed, and empty.</p>
+          <div class="set__check">
+            <p class="set__check-head"><span>Check the set</span><span data-set-count>0 of 4 in the box</span></p>
+            <ul data-set-list></ul>
+            <div class="set__sum" data-set-sum>
+              <p class="set__total"><span>The set</span><b data-set-price></b></p>
+              <p class="set__made" data-set-made></p>
+              <div class="set__cta"><a class="btn btn--gold" href="#reserve" data-pick-model="set">Reserve the set</a><a class="link" href="#hours">One at a time</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="set__film" data-set-film aria-hidden="true"></div>
+        <div class="set__scene" aria-hidden="true"><div class="set__box" data-box></div></div>
+        <p class="film-tag" data-set-film-tag hidden></p>
+        <p class="set__hint" data-set-hint>Scroll to open it</p>
+      </div>
+    </section>
+
+    <!-- ═════════ 5 · THE ATELIER ═════════ -->
+    <section class="atelier" id="atelier" data-tone="light" aria-labelledby="atelier-title">
+      <header class="atelier__head">
+        <p class="eyebrow rv">The atelier</p>
+        <h2 class="h2" id="atelier-title" data-split>Made slowly, <em>by hand.</em></h2>
+        <p class="lede rv">Nine people, one long room with north light, and no deadline shorter than the work. These are the four jobs that take the longest.</p>
+      </header>
+      <div class="atelier__grid">
+        <figure class="acard">
+          <div class="acard__frame"><div class="iris" data-iris><div class="slot" data-shot="atelier-enamel"></div></div><i class="iris__ring" aria-hidden="true"></i></div>
+          <figcaption><b>Grand feu enamel</b>Powdered glass, fired at 800 °C seven times for each Mesembria dial. About one in three cracks in the kiln, and we start again.</figcaption>
+        </figure>
+        <figure class="acard">
+          <div class="acard__frame"><div class="iris" data-iris><div class="slot" data-shot="atelier-perlage"></div></div><i class="iris__ring" aria-hidden="true"></i></div>
+          <figcaption><b>Perlage</b>About 1,400 overlapping circles pressed into each mainplate with a spinning peg. Nobody will see them unless they open the watch.</figcaption>
+        </figure>
+        <figure class="acard">
+          <div class="acard__frame"><div class="iris" data-iris><div class="slot" data-shot="atelier-anglage"></div></div><i class="iris__ring" aria-hidden="true"></i></div>
+          <figcaption><b>Anglage</b>Every bridge edge bevelled at 45° with files, then polished with gentian wood until it reflects like a line of mirror.</figcaption>
+        </figure>
+        <figure class="acard">
+          <div class="acard__frame"><div class="iris" data-iris><div class="slot" data-shot="atelier-bench"></div></div><i class="iris__ring" aria-hidden="true"></i></div>
+          <figcaption><b>One bench</b>One watchmaker builds each movement from loose parts to a running watch, then engraves their number on the back.</figcaption>
+        </figure>
+      </div>
+      <ul class="numbers">
+        <li><b data-count="41">41</b><span>hours of hand finishing in every movement</span></li>
+        <li><b data-count="7">7</b><span>firings for each enamel dial</span></li>
+        <li><b data-count="300">300</b><span>watches a year, across the four hours</span></li>
+        <li><b data-count="1">1</b><span>watchmaker per watch, start to finish</span></li>
+      </ul>
+    </section>
+
+    <!-- ═════════ 6 · RESERVE ═════════ -->
+    <section class="reserve" id="reserve" data-tone="dark" aria-labelledby="reserve-title">
+      <div class="slot slot--fill reserve__bg" data-shot="closing"></div>
+      <div class="reserve__in">
+        <p class="eyebrow rv">Reserve your hour</p>
+        <h2 class="h2" id="reserve-title" data-split>Three hundred a year. <em>Which hour is yours?</em></h2>
+        <p class="lede rv">Tell us which watch, and where you are. When a piece is ready, a watchmaker writes to you, not a mailing list.</p>
+        <form class="form rv" data-form novalidate>
+          <fieldset class="form__pick">
+            <legend>The watch</legend>
+            <div class="pick" data-pick></div>
+          </fieldset>
+          <div class="form__row">
+            <label class="field"><span>Name</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label class="field"><span>City</span><input name="city" autocomplete="address-level2"></label>
+          <p class="form__err" data-err role="alert"></p>
+          <button class="btn btn--gold" type="submit">Reserve</button>
+          <p class="form__note">Reservations open at launch. Nothing is charged or sent today.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" data-tone="dark">
+    <div class="foot__top">
+      <a class="brand brand--big" href="index.html" aria-label="Horæ, home"><span class="brand__mark" data-mark></span><span class="brand__word">HORÆ</span></a>
+      <p class="foot__tag">Every hour has a name.</p>
+    </div>
+    <div class="foot__cols">
+      <div><h3>Watches</h3><ul data-foot-models></ul></div>
+      <div><h3>House</h3><ul><li><a href="index.html#calibre">The calibre</a></li><li><a href="index.html#atelier">The atelier</a></li><li><a href="breakdown.html">The breakdown</a></li></ul></div>
+      <div><h3>Service</h3><ul><li>Care and servicing</li><li>Ten-year warranty</li><li>Private viewings</li></ul></div>
+    </div>
+    <div class="foot__base">
+      <p>© <span data-year>2026</span> Horæ. A concept brand.</p>
+    </div>
+  </footer>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="assets/img/ready.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/shots.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/film.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+  <i id="vt-ready" hidden></i>
+</body>
+</html>

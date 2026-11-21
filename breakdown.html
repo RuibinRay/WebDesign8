@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The breakdown · Horæ</title>
+  <meta name="description" content="Horæ taken apart: the idea, the name, the four watches, colour, type, every scroll transition and the pictures still to make.">
+  <meta name="theme-color" content="#0A0E1C">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Jost:wght@300..600&display=swap">
+  <link rel="stylesheet" href="css/horae.css">
+  <script src="js/motion.js"></script>
+</head>
+<body class="bd">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav data-on="dark">
+    <nav class="nav__in" aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="index.html">The site</a></li>
+        <li><a href="shots.html">Shot sheet</a></li>
+      </ul>
+      <a class="brand" href="index.html" aria-label="Horæ, home"><span class="brand__mark" data-mark></span><span class="brand__word">HORÆ</span></a>
+      <div class="nav__end"><button class="nav__motion" type="button" data-motion-toggle aria-pressed="false" aria-label="Reduce motion"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.2"/><path class="nav__motion-hand" d="M10 10V4.6"/><circle cx="10" cy="10" r="1.1" class="nav__motion-pin"/></svg><span data-motion-label>Reduce motion</span></button><a class="nav__cta" href="watch.html?m=arktos">A watch page</a></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="bd-hero" data-tone="dark">
+      <p class="eyebrow">Brand breakdown · concept, November 2026</p>
+      <h1 class="h2" data-split>Horæ, <em>taken apart.</em></h1>
+      <p class="lede rv">The idea, the name, the four watches, the colour of every hour, the type, each scroll transition, and the 23 pictures still to make. Everything here is built and running; only the photographs are missing.</p>
+      <ul class="bd-toc rv">
+        <li><a href="#idea">Idea</a></li><li><a href="#name">Name and mark</a></li><li><a href="#range">The four</a></li>
+        <li><a href="#colour">Colour</a></li><li><a href="#type">Type</a></li><li><a href="#motion">Motion</a></li>
+        <li><a href="#pages">Pages</a></li><li><a href="#pictures">Pictures</a></li><li><a href="#invented">Invented</a></li>
+      </ul>
+    </section>
+
+    <section class="bd-sec" id="idea" data-tone="light">
+      <header><p class="eyebrow">01 · The idea</p><h2>Every hour has a name.</h2></header>
+      <div>
+        <p class="lede">Before the hours were numbers, the Greeks named them. Hyginus lists twelve Horae, from Auge, first light, to Arktos, the night sky. Horæ makes one watch for each of four of those hours, and lets the hour decide everything: the dial colour, the metal, the thickness, even the shadow the hands cast.</p>
+        <p>The site is built the same way. The home page is one day. Scrolling is the clock: the sky, the sun, the moon and the light on the dial move with it, and each watch takes the stage at its own hour. The idea works without a single photograph, which is why the draft already looks finished.</p>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="name" data-tone="light">
+      <header><p class="eyebrow">02 · Name and mark</p><h2>Horæ</h2></header>
+      <div>
+        <p>Latin plural of <em>hora</em>, “hour”, and the name of the goddesses who kept them. Said <b>HOR-eye</b>. The Æ ligature is the one ornament in the wordmark; in plain text it can be written Horae. The mark is twelve hour points around the Æ, the four quarters a little larger, like a dial’s chapter ring.</p>
+        <div class="marks">
+          <div><span data-mark style="width:72px;height:72px;display:block"></span></div>
+          <div class="on-night"><span data-mark style="width:72px;height:72px;display:block"></span></div>
+          <div class="on-night"><span class="brand"><span class="brand__mark" data-mark></span><span class="brand__word">HORÆ</span></span></div>
+        </div>
+        <p style="margin-top:24px">Before launch: check “Horae” and “Horæ” for trademarks in watches (Nice class 14) in your markets. A Swiss brand called Horage exists; the names are distinct but close enough to ask a lawyer.</p>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="range" data-tone="light">
+      <header><p class="eyebrow">03 · The four</p><h2>Four hours, four watches.</h2></header>
+      <div>
+        <div class="bd-scroll"><table class="bd-table" data-range></table></div>
+        <div class="mini-watches" data-minis></div>
+        <p style="margin-top:28px"><b>The set, The Complete Day:</b> all four with consecutive case numbers, in one lacquered box lined in the colours of their hours: $108,700, twelve sets a year. On the home page it starts as a closed, empty box; the lid lifts, the four drop into their places from sunrise to night, and a list beside it checks each one off. <a href="index.html#set">See it</a>.</p>
+        <p style="margin-top:28px">The watches are drawn in code (<code>js/art.js</code>) and run on real time, 8 beats a second like a 4 Hz movement. Arktos’s moon follows the real moon. These drawings carry the site until the photographs exist, then stay as the signature pieces.</p>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="colour" data-tone="light">
+      <header><p class="eyebrow">04 · Colour</p><h2>The palette is a day.</h2></header>
+      <div>
+        <div class="daybar" aria-label="The sky from midnight to midnight"></div>
+        <div class="daybar__ticks"><span>00:00</span><span>03:00</span><span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span></div>
+        <p style="margin-top:24px">The sky colours live in <code>js/data.js</code> (SKY) and feed both the home page and the watch pages. Fixed colours sit at the top of <code>css/horae.css</code>.</p>
+        <div class="swatches" data-swatches></div>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="type" data-tone="light">
+      <header><p class="eyebrow">05 · Type</p><h2>Said aloud, read in passing.</h2></header>
+      <div class="type-spec">
+        <div class="big">Mesembria<small>Bodoni Moda, italic, optical size on. Watch names and the big moments.</small></div>
+        <div class="mid">Before the hours were numbers, they had names.<small>Bodoni Moda, regular. Headlines, prices, numbers.</small></div>
+        <div class="lab">Calibre H·1L · 72 hours · 4 Hz<small>Jost 450, uppercase, tracked 0.22 to 0.26 em. Labels, eyebrows, buttons.</small></div>
+        <div>Every movement is assembled, finished and regulated by one watchmaker, start to finish.<small>Jost 350 at 17 px, line height 1.6. Body copy.</small></div>
+      </div>
+    </section>
+
+    <section class="bd-sec bd-dark" id="motion" data-tone="dark">
+      <header><p class="eyebrow">06 · Motion</p><h2>Every scroll transition, and why it is there.</h2></header>
+      <div>
+        <ol class="motion-list">
+          <li><b>The live hour</b><span>The hero reads your clock and names the hour you are in (“The Greeks called this hour Akte”). Sky, light and watch all match your real time when you arrive.</span></li>
+          <li><b>Winding back to first light</b><span>The first scroll spins the hands back from your time to 05:30, and the sky fades to pre-dawn. It sets up the rule of the page: scrolling is time.</span></li>
+          <li><b>One day (pinned, 7.6 screens)</b><span>Scroll drives the clock. Between watches the hands race; at each watch’s hour they slow to a plateau so you can read. The sky blends through 14 key colours.</span></li>
+          <li><b>Sun, moon and stars</b><span>The sun rises on the left, crosses high at noon and sets right. After dusk the stars fade in and the moon rises.</span></li>
+          <li><b>Shadows that tell the time</b><span>Hands and markers cast a real shadow away from the sun: long and sideways at sunrise, almost none at noon (the Mesembria idea), soft at night. The sunburst sheen and crystal glare turn with the light.</span></li>
+          <li><b>The dial morph</b><span>At each boundary the watch crossfades to the next model with a small breath in scale, while the hands keep running. Four watches, one continuous object.</span></li>
+          <li><b>Lume at night</b><span>As the sky darkens, the Arktos hands and markers start to glow green, as luminous paint does once the light is gone.</span></li>
+          <li><b>The hour rail</b><span>All twelve names down the right edge, the current one lit and the four with watches marked. The clock above it shows the scrubbed time.</span></li>
+          <li><b>The ring of names</b><span>The twelve names on a dial ring that turns as you pass, the four watch names in gold.</span></li>
+          <li><b>The calibre, taken apart (pinned, 4.4 screens)</b><span>The watch tilts into 3D, turns, and separates into nine layers in build order. Each part gets a leader line and a label. Gears turn, the balance beats, the gold rotor swings with the scroll.</span></li>
+          <li><b>Stacked hours</b><span>The four collection cards pin one over the other; the one underneath shrinks back and dims as the next slides over it.</span></li>
+          <li><b>The box (pinned, 4.6 screens)</b><span>A closed, empty box in CSS 3D. It turns toward you and the lid lifts on its hinge, showing four empty places lined in dawn rose, enamel white, copper and night blue. The watches drop in one at a time, sunrise to night, and the list beside it ticks each one off as it lands. With all four in, the set’s total and “Reserve the set” appear.</span></li>
+          <li><b>Aperture reveals</b><span>Atelier and story pictures open like an iris, a thin gold ring riding the edge. Scroll-linked, so they close again if you scroll back.</span></li>
+          <li><b>Words that rise</b><span>Headlines come up word by word from behind a mask.</span></li>
+          <li><b>Watch page</b><span>“Your time / Its hour” glides the sky to the watch’s own hour. On scroll the watch settles back and a reserve bar slides up; the hour photograph eases out of a slow zoom.</span></li>
+          <li><b>The watch flies between pages</b><span>Click “Discover” and the watch you are looking at (the drawing on the day stage, or the photo on a collection card) flies into the watch page’s hero and becomes the large drawing, while its name glides into the page title. The page you leave sinks and dims behind it. From one watch page to another, the small dial grows into the next hero. Back through history, it flies home again.</span></li>
+          <li><b>Smooth scroll</b><span>Lenis on desktop gives the wheel weight, so the day, the calibre and the stacked cards glide instead of stepping. Phones keep their own native scrolling.</span></li>
+          <li><b>Fast-forward links</b><span>A menu link plays the page past you rather than jumping: “Reserve” runs the whole day, the calibre and the collection by in under three seconds, eased in and out.</span></li>
+          <li><b>The day, filmed</b><span>When the films exist, the sky behind the day stage is a real place: a terrace over the sea, played from first light to night by the same clock that turns the hands, frame by frame. Three short films are chained at dawn, noon and evening; the drawn sun, moon and stars step aside, the drawn watch stays. Until then the drawn sky is the storyboard; with only the stills, they crossfade by the hour.</span></li>
+          <li><b>The box, filmed</b><span>The real lacquered box opens in the first quarter of the set, in the drawn box's exact place with its edges dissolving into the dark, then crossfades to the drawn box just before the watches drop in, so the checklist still ticks them off.</span></li>
+          <li><b>On the wrist</b><span>Four wrist photographs, each with whose wrist it is; the four cases side on at their real sizes; and a slider for your own wrist that compares each watch’s lug to lug with the flat top of your wrist.</span></li>
+          <li><b>Coming to rest</b><span>Stop scrolling between two watches and the day glides on to the nearer one, leaning toward the way you were going. The box does the same with its six states: closed, open, then each watch in. It never moves while a finger or the scrollbar is held.</span></li>
+          <li><b>Steps</b><span>← and → go from one watch (or one box state) to the next; the round buttons on the day stage do the same.</span></li>
+          <li><b>Settle</b><span>The watch on the day stage sways a little, flat in its own plane, with the speed of the scroll and swings into place, with a small overshoot, when the next one arrives.</span></li>
+          <li><b>The watches, photographed and live</b><span>Every watch is its own photograph, flat and face on, with only the hands drawn on top, so it still tells your time, its hands still cast the sun's shadow and the Arktos hands still glow at night. On the watch page, “See the back” crossfades to the photographed movement.</span></li>
+        </ol>
+        <p style="margin-top:28px;color:var(--moon-2)">Reduce motion (the faint dial at the top right, or the phone’s system setting) stops the self-running loops, entrance effects, smooth scrolling and page transitions. Scroll-driven scenes stay, because they only move when you scroll.</p>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="pages" data-tone="light">
+      <header><p class="eyebrow">07 · Pages</p><h2>What is built.</h2></header>
+      <div class="bd-scroll">
+        <table class="bd-table">
+          <tr><th>Page</th><th>Sections</th></tr>
+          <tr><td>Home</td><td>One day (hero + the four watches) · The twelve names · The calibre taken apart · The four hours (stacked cards) · The set (the box) · The atelier · Reserve your hour (form) · Footer</td></tr>
+          <tr><td>Watch</td><td><code>watch.html?m=anatole</code> (or mesembria, hesperis, arktos): live watch with strap choice and “its hour” · gallery · its hour · specifications · the other hours · reserve bar</td></tr>
+          <tr><td>Breakdown</td><td>This page</td></tr>
+          <tr><td>Shot sheet</td><td><code>shots.html</code>, not linked from the site: every image with its prompt, model, reference and copy buttons</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="pictures" data-tone="light">
+      <header><p class="eyebrow">08 · Pictures</p><h2>Every picture and every film is made.</h2></header>
+      <div>
+        <p>Every image slot already shows a placeholder: an engraved guilloché rosette in that hour’s colour, with a note saying exactly what goes there. The prompts are written and live in <code>js/shots.js</code>, one look bible reused word for word in every prompt.</p>
+        <p><b>Stage 1:</b> the four watch masters (face on, each on its hour’s colour) and five scenes without a watch: four atelier shots and an ancient sundial. <b>Stage 2:</b> fourteen images that pass the masters in as reference images so the same watch appears everywhere: three-quarter, caseback and on the wrist at its hour for each, the four together, and the night closing shot.</p>
+        <p>Made on 20 November 2026: the six film stills, and the watches themselves (four masters, the same photographs with the hands removed, the backs, all cut out), which now replace the drawings everywhere while the drawn hands keep real time on top. The angles, wrists, the four together, the closing shot and the atelier followed the same day. The four films followed: the whole day behind the watches, and the box opening. When you are ready, <code>node higgsfield/generate.mjs</code> shows the plan and cost and spends nothing; <code>--go</code> generates. At the prices quoted on 20 November 2026 the page images are about 50 credits.</p>
+        <p><b>The films:</b> six stills (a terrace over the sea at dawn, noon, evening and night, each later one made from the dawn frame so the camera never moves; the box closed, then open) and four 5-second Kling films between them, about 87 credits. Until they exist the drawn sky and the drawn box play their part.</p>
+        <a class="link" href="shots.html">Open the shot sheet</a>
+      </div>
+    </section>
+
+    <section class="bd-sec" id="invented" data-tone="light">
+      <header><p class="eyebrow">09 · Invented</p><h2>Replace before launch.</h2></header>
+      <div>
+        <p>All prices, dimensions, power reserves, part and jewel counts, finishing hours, firing counts, edition sizes (300 a year, twelve sets), the set’s price, the ten-year warranty, the fourteen-week wait and the moon’s 122-year accuracy are proposals for the concept. So are the atelier (“nine people”) and the reservation flow, which stores choices in the browser and sends nothing. Connect a CRM or mailing tool, and replace every figure with real ones.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" data-tone="dark">
+    <div class="foot__base">
+      <p>© <span data-year>2026</span> Horæ. A concept brand.</p>
+    </div>
+  </footer>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="assets/img/ready.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/shots.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/media.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    (function () {
+      var H = window.HORAE, ART = window.HZ_ART;
+      document.querySelector('[data-range]').innerHTML =
+        '<tr><th>Watch</th><th>Hour</th><th>Case</th><th>Movement</th><th>Dial</th><th>Price</th><th>A year</th></tr>' +
+        H.MODELS.map(function (m) {
+          return '<tr><td><a href="watch.html?m=' + m.id + '">' + m.name + '</a></td><td>' + m.hour + ', ' + m.range + '</td><td>' + m.metal + ', ' + m.case + ', ' + m.thick + '</td><td>' + m.calibre + ', ' + m.reserve + '</td><td>' + m.dial + '</td><td>' + H.money(m.price) + '</td><td>' + m.year + '</td></tr>';
+        }).join('');
+      var minis = H.MODELS.map(function (m) {
+        var f = document.createElement('figure');
+        var w = ART.watch(m.id, { strap: false });
+        f.appendChild(w.el);
+        f.insertAdjacentHTML('beforeend', '<figcaption>' + m.name + '</figcaption>');
+        document.querySelector('[data-minis]').appendChild(f);
+        w.light(ART.lightAt(m.at)).lume(m.id === 'arktos' ? 1 : 0);
+        return w;
+      });
+      setInterval(function () { var t = ART.now(); minis.forEach(function (w) { w.time(t.h, t.m, t.s); }); }, 125);
+      var SW = [
+        ['Night ink', '#0A0E1C', 'Base, night sections'], ['Midnight', '#141B3A', 'Arktos, deep panels'], ['Aventurine', '#1A2A57', 'Arktos dial'],
+        ['Dawn rose', '#EBC3B0', 'Anatole, sunrise'], ['Pale gold', '#F3DFB5', 'Anatole dial top'], ['Enamel', '#FBF9F3', 'Mesembria dial'],
+        ['Limestone', '#F3EEE4', 'Paper sections'], ['Salmon', '#E3A588', 'Hesperis dial'], ['Copper', '#9A5A3E', 'Hesperis, evening'],
+        ['Gold', '#C9A46A', 'Buttons, accents'], ['Gold light', '#E7D3A7', 'Lines on night'], ['Lume', '#A6FFD0', 'Night glow only'],
+      ];
+      document.querySelector('[data-swatches]').innerHTML = SW.map(function (s) {
+        return '<div class="sw"><i style="background:' + s[1] + '"></i><span><b>' + s[0] + '</b>' + s[1] + ' · ' + s[2] + '</span></div>';
+      }).join('');
+    })();
+  </script>
+</body>
+</html>
