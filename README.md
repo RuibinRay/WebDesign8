@@ -1,5 +1,7 @@
 # Horæ · every hour has a name
 
+**Live:** https://ruibinray.github.io/WebDesign8/ (GitHub `RuibinRay/WebDesign8`, deployed by `.github/workflows/deploy.yml` on every push to `main`).
+
 Concept luxury watch brand. Before the hours were numbers, the Greeks named them: Hyginus lists twelve Horae, from **Auge** (first light) to **Arktos** (the night sky). Horæ makes one watch for each of four of those hours, and the hour decides everything about it: dial, metal, thickness, even the shadow its hands cast.
 
 | Watch | Hour | Case | Movement | Price |
